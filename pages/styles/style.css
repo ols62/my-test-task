@@ -20,9 +20,11 @@
 
     --sl-content-width: 60%;
 	--sl-content-min-width: 360px;
-	--sl-color-background: #ffffff;
-	--sl-color-control-l: #245dc7;
-	--sl-color-control-xl: #ffffff;
+	--sl-color-background:var(--color-background);
+	--sl-color-control-l: #C9C9C9;
+	--sl-color-control-xl: #9f975cc5;
+
+
 }
 
 
@@ -285,15 +287,6 @@ img {
     justify-content: space-between;
 }
 
-.section4_wrapper>div:nth-child(1)
-{ 
-    background: url(../../assets/images/image1.png) no-repeat top;
-}
-
-.section4_wrapper>div:nth-child(3)
-{ 
-    background: url(../../assets/images/image2.png) no-repeat top;
-}
 
 /******** -- section5 styles-- ********/
 .section5_wrapper {
