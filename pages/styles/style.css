@@ -198,14 +198,15 @@ h5,
 .section1_wrapper>div,
 img {
     border-radius: 20px;
+    margin: 20px;
 }
 
 .section1_wrapper>div:nth-child(1) {
-    flex: 2;
+    flex: 5;
 }
 
 .section1_wrapper>div:nth-child(2) {
-    flex: 4;
+    flex: 5;
 }
 
 .section1_wrapper>div:nth-child(4),
