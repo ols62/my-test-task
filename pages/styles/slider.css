@@ -1,0 +1,114 @@
+.wrapper span {
+	min-width: 100%;
+	color: var(--sl-color-control-xl);
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	padding: 4vw;
+	margin: auto;
+	width: var(--sl-content-width);
+	max-width: var(--content-max-width);
+	min-width: var(--sl-content-min-width);
+	background-color: var(--sl-color-background);
+}
+
+.wrapper input {
+	display: none;
+}
+
+.wrapper .section:first-of-type {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.wrapper .section:last-of-type {
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.wrapper .section:first-of-type>.article:first-child {
+	display: flex;
+	flex-direction: row;
+	transition: ease-in-out .8s;
+}
+
+.wrapper .section:last-of-type>.article:first-child {
+	overflow: hidden;
+}
+
+.article:nth-of-type(1) img {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+		max-height: 630px;
+    height: auto;
+    display: block;
+}
+
+.controls {
+	display: flex;
+}
+
+.controls label {
+	cursor: pointer;
+	padding: .5rem .5rem .9rem .5rem;
+}
+
+.bnt {
+	display: flex;
+	width: 1.5rem;
+	height: 1.5rem;
+	box-sizing: border-box;
+	background: var(--sl-color-control-l);
+	transition: background-color .7s;
+	border-radius: 50%;
+	border: 0.25rem solid var(--sl-color-control-l);
+
+}
+
+.controls label:hover .bnt {
+	background: var(--sl-color-control-xl);
+	border-color: var(--sl-color-control-xl);
+}
+
+.controls label:active .bnt {
+	background: var(--sl-color-background);
+}
+
+.wrapper input:nth-child(1):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-1"]>span,
+.wrapper input:nth-child(2):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-2"]>span,
+.wrapper input:nth-child(3):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-3"]>span,
+.wrapper input:nth-child(4):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-4"]>span,
+.wrapper input:nth-child(5):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-5"]>span {
+	background: var(--sl-color-background);
+}
+
+
+.wrapper input:nth-child(1):checked~.section:first-of-type>.article:first-child {
+	transform: translateX(0%);
+}
+
+
+.wrapper input:nth-child(2):checked~.section:first-of-type>.article:first-child {
+	transform: translateX(-100%);
+}
+
+
+.wrapper input:nth-child(3):checked~.section:first-of-type>.article:first-child {
+	transform: translateX(-200%);
+}
+
+
+.wrapper input:nth-child(4):checked~.section:first-of-type>.article:first-child {
+	transform: translateX(-300%);
+}
+
+
+.wrapper input:nth-child(5):checked~.section:first-of-type>.article:first-child {
+	transform: translateX(-400%);
+}

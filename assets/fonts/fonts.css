@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('./SofiaProBlack.eot');
+    src: local('Sofia Pro Black'), local('SofiaProBlack'),
+        url('./SofiaProBlack.eot?#iefix') format('embedded-opentype'),
+        url('./SofiaProBlack.woff2') format('woff2'),
+        url('./SofiaProBlack.woff') format('woff'),
+        url('./SofiaProBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Wellingtons';
+  src: url('./TTWellingtons-Regular.eot');
+  src: local('TT Wellingtons Regular'), local('TTWellingtons-Regular'),
+    url('./TTWellingtons-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./TTWellingtons-Regular.woff2') format('woff2'),
+    url('./TTWellingtons-Regular.woff') format('woff'),
+    url('./TTWellingtons-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro Semi';
+  src: url('./SofiaProSemiBold.eot');
+  src: local('Sofia Pro Semi Bold'), local('SofiaProSemiBold'),
+    url('./SofiaProSemiBold.eot?#iefix') format('embedded-opentype'),
+    url('./SofiaProSemiBold.woff2') format('woff2'),
+    url('./SofiaProSemiBold.woff') format('woff'),
+    url('./SofiaProSemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('./SofiaProMedium.eot');
+  src: local('Sofia Pro Medium'), local('SofiaProMedium'),
+    url('./SofiaProMedium.eot?#iefix') format('embedded-opentype'),
+    url('./SofiaProMedium.woff2') format('woff2'),
+    url('../SofiaProMedium.woff') format('woff'),
+    url('./SofiaProMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../../assets/fonts/SofiaProBold.eot');
+  src: local('Sofia Pro Bold'), local('SofiaProBold'),
+    url('./SofiaProBold.eot?#iefix') format('embedded-opentype'),
+    url('./SofiaProBold.woff2') format('woff2'),
+    url('./SofiaProBold.woff') format('woff'),
+    url('./SofiaProBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('./SofiaProRegular.eot');
+  src: local('Sofia Pro Regular'), local('SofiaProRegular'),
+    url('./SofiaProRegular.eot?#iefix') format('embedded-opentype'),
+    url('./SofiaProRegular.woff2') format('woff2'),
+    url('./SofiaProRegular./../assets/fonts/SofiaProRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
