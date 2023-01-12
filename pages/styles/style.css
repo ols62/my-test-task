@@ -1,3 +1,4 @@
+@import url('../styles/dropdown.css');
 @import url('../styles/slider.css');
 
 :root {
@@ -19,15 +20,11 @@
     --color-text: red;
 
     --sl-content-width: 60%;
-	--sl-content-min-width: 360px;
-	--sl-color-background:var(--color-background);
-	--sl-color-control-l: #C9C9C9;
-	--sl-color-control-xl: #9f975cc5;
-
-
+    --sl-content-min-width: 360px;
+    --sl-color-background: var(--color-background);
+    --sl-color-control-l: #C9C9C9;
+    --sl-color-control-xl: #9f975cc5;
 }
-
-
 
 html {
     margin: 0px;
@@ -65,6 +62,11 @@ section,
     background: var(--color-background-footer);
 }
 
+.hidden-ovl {
+    overflow: hidden;
+}
+
+
 .background_wraper {
     background: var(--color-background);
 }
@@ -75,8 +77,7 @@ section,
 .section2_wrapper,
 .section3_wrapper,
 .section5_wrapper,
-.section6_wrapper
-{
+.section6_wrapper {
     max-width: var(--content-width);
     width: 100%;
     margin: 0 auto;
@@ -220,57 +221,26 @@ img {
 /******** -- section2 styles-- ********/
 .section2_wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: #ffffff;
-    box-shadow: 0px 20px 50px rgba(25, 34, 41, 0.1);
-    border-radius: 20px;
+    box-shadow: 0px 2rem 5rem rgba(25, 34, 41, 0.1);
+    border-radius: 2rem;
 }
 
-.dropdown {
-    color: #ffffff;
-    padding-right: 20px;
-    width: 220px;
-    background: #E0DEDB;
-    border: 1px solid #E0DEDB;
-    box-shadow: 0px 4px 20px rgba(22, 26, 32, 0.06);
-    border-radius: 12px;
-    font-size: 1.8rem;
-    line-height: 3.2rem;
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
+
+.section2_wrapper h2 {
+    font-family: 'TT Wellingtons';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4.8rem;
+    line-height: 100%;
+    color: #30261D;
 }
 
-.dropbtn:hover,
-.dropbtn:focus {
-    background-color: #becfbf;
-}
+/* identical to box height, or 48px */
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    overflow: auto;
-    border: 1px solid #ddd;
-    z-index: 1;
-}
-
-.dropdown-content option {
-    color: black;
-    padding: 12px 16px;
-    display: block;
-}
-
-.dropdown option:hover {
-    background-color: #ddd;
-}
-
-.show {
-    display: block;
-}
 
 /******** -- section3 styles-- ********/
 .section3_wrapper {
@@ -279,6 +249,7 @@ img {
     flex-wrap: nowrap;
     justify-content: space-between;
 }
+
 /******** -- section4 styles-- ********/
 .section4_wrapper {
     display: flex;
@@ -382,13 +353,13 @@ img {
 
 
 @media only screen and (max-width: 768px) {
-	.wrapper {
-		padding: 1vw;
-		width: 98vw;
-	}
+    .wrapper {
+        padding: 1vw;
+        width: 98vw;
+    }
 
-	.wrapper section:last-of-type {
-		flex-direction: column-reverse;
-	}
+    .wrapper section:last-of-type {
+        flex-direction: column-reverse;
+    }
 
 }
