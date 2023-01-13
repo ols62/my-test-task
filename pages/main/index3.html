@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../styles/normalize.css" />
-  <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="stylesheet" href="../styles/style3.css" />
   <link rel="stylesheet" href="../../assets/fonts/fonts.css" />
   <script src="../js/script.js"></script>
   <title>Mobile Sauna booking - Hot huts</title>
 </head>
 
 <body>
-  <header class="header--background">
+  <header class="header header_background">
     <div class="header_wrapper">
       <div class="nav_wrapper">
         <a href="/">
           <object type="image/svg+xml" data="../../assets/icons/logo.svg">
-            Your brouser does not support SVG
+            Your browser does not support SVG
           </object>
         </a>
         <nav class="nav_block">
@@ -27,22 +27,21 @@
         </nav>
       </div>
       <div class="intro_wrapper">
-        <h1>Sauna on wheels for your relaxation wherever you are</h1>
+        <h1 class="intro__title">Sauna on wheels for your relaxation wherever you are</h1>
         <div class="button_block">
-          <button class="button--primary" >BOOK A SAUNA</button>
-          <button class="button--scondary">LEARN MORE</button>
+          <button class="button_primary" onclick="alert(windSize())">BOOK A SAUNA</button>
+          <button class="button_secondary" onclick="alert(windSize())">LEARN MORE</button>
         </div>
       </div>
     </div>
   </header>
+  <section class="section1 background_wrapper">
+    <div class="section1_wrapper">
 
-  <section class="features section--background">
-    <div class="features--wrapper">
-
-      <div class="features-features">
-        <div class="features-features__info">
-          <h2 class="features-features__title">What features and what you can get</h2>
-          <p class="features-features__text">The cabin trailer with a sauna goes with you to where you want to go! This
+      <div class="section1-features">
+        <div class="section1-features__info">
+          <h2 class="section1-features__title">What features and what you can get</h2>
+          <p class="section1-features__text">The cabin trailer with a sauna goes with you to where you want to go! This
             cabin
             trailer combines a comfortable kitchen and living room combo with a fantastic sauna that offers soft,
             relaxing
@@ -51,26 +50,25 @@
             into a double bed. Up to four people at a time can enjoy the soft warmth of the spacious sauna. The
             heat-insulated cabin trailer is suited to year-round use.</p>
         </div>
-        <img src="../../assets/images/sauna1.png" alt="The Sauna" class="features-features__picture">
+        <img src="../../assets/images/sauna1.png" alt="The Sauna" class="section1-features__picture">
       </div>
-      <div class="features-details">
+      <div class="section1-details">
         <img src="../../assets/images/inside1.png" alt="The Sauna">
-        <div class="features-details-frame">
-          <h3 class="features-details__title">Turnkey delivery</h3>
-          <p class="features-details__text">We fully organize delivery at the right time and place that you specify when
+        <div class="section1-details-frame">
+          <h3 class="section1-details__title">Turnkey delivery</h3>
+          <p class="section1-details__text">We fully organize delivery at the right time and place that you specify when
             ordering.
           </p>
         </div>
         <img src="../../assets/images/inside2.png" width="320" height="320" alt="The Sauna">
-        <div class="features-details-frame">
-          <h3 class="features-details__title">Prices</h3>
-          <p class="features-details__info">$99 hour</p>
-          <p class="features-details__info">$299 day</p>
+        <div class="section1-details-frame">
+          <h3 class="section1-details__title">Prices</h3>
+          <p class="section1-details__info">$99 hour</p>
+          <p class="section1-details__info">$299 day</p>
         </div>
       </div>
   </section>
-
-  <section class="section--background">
+  <section class="background_wrapper">
     <div class="section2_wrapper">
       <h2>Book a sauna<span>
           <object type="image/svg+xml" data="../../assets/icons/list.svg">Your browser
@@ -94,7 +92,7 @@
       <input id="datein" type="datetime-local" name="calendar">
       <input id="dateout" type="date" name="calendar">
   </section>
-  <section class="section--background">
+  <section class="background_wrapper">
     <div class="section3_wrapper">
       <div>
         <object type="image/svg+xml" data="../../assets/images/Union1.svg" width="60" height="60">Your browser does not
@@ -116,46 +114,48 @@
       </div>
     </div>
   </section>
-
-  <section class="section--background slider--hidden">
+  <section class="background_wrapper hidden-ovl">
     <div class="section4_wrapper">
-      <div>
+      <!-- div>
         <object type="image/svg+xml" data="../../assets/icons/arrow_left_dark.svg">Your browser
           does not
           support SVG</object>
-      </div>
-      <div class="slider">
-        <input type="radio" id="button-1" name="buttons" checked="checked"/>
+      </div -->
+      <div class="wrapper">
+        <input type="radio" id="button-1" name="buttons" checked="checked" />
         <input type="radio" id="button-2" name="buttons" />
         <input type="radio" id="button-3" name="buttons" />
-        <div class="slider__section">
-          <div class="slider__article">
+        <input type="radio" id="button-4" name="buttons" />
+        <input type="radio" id="button-5" name="buttons">
+        <div class="section">
+          <div class="article">
             <img src="../../assets/images/sauna3.png" alt="The Sauna">
-            <img src="../../assets/images/sauna3.png" alt="The Sauna">
-            <img src="../../assets/images/sauna3.png" alt="The Sauna">
-            <img src="../../assets/images/sauna3.png" alt="The Sauna">
-            <img src="../../assets/images/sauna3.png" alt="The Sauna">
+            <img src="../../assets/images/background.png" alt="The Sauna">
+            <img src="../../assets/images/sauna2.png" alt="The Sauna">
+            <img src="../../assets/images/sauna1.png" alt="The Sauna">
+            <img src="../../assets/images/image4.png" alt="The Sauna">
           </div>
         </div>
-        <div class="slider__section">
-          <div class="slider__article">
-            <div class="slider__controls">
-              <label for="button-1"><span class="slider__bnt"></span></label>
-              <label for="button-2"><span class="slider__bnt"></span></label>
-              <label for="button-3"><span class="slider__bnt"></span></label>
+        <div class="section">
+          <div class="article">
+            <div class="controls">
+              <label for="button-1"><span class="bnt"></span></label>
+              <label for="button-2"><span class="bnt"></span></label>
+              <label for="button-3"><span class="bnt"></span></label>
+              <label for="button-4"><span class="bnt"></span></label>
+              <label for="button-5"><span class="bnt"></span></label>
             </div>
           </div>
         </div>
       </div>
-      <div style="overflow:visible;">
+      <!--div>
         <object type="image/svg+xml" data="../../assets/icons/arrow_right_dark.svg">Your browser
           does not
           support SVG</object>
-      </div>
+      </div-->
     </div>
   </section>
-
-  <section class="section5 section--background">
+  <section class="section5 background_wrapper">
     <div class="section5_wrapper">
       <h2 class="section5__title">Sauna details</h2>
       <div class="details">
@@ -170,7 +170,7 @@
         </div>
       </div>
   </section>
-  <section class="section--background">
+  <section class="background_wrapper">
     <div class="section5_wrapper">
       <div class="instagram">
         <h3 class="instagram__title">Instagram</h3>
@@ -216,7 +216,6 @@
       </div>
     </div>
   </section>
-
   <footer class="footer_background footer_wrapper">
     <div class="footer">
       <div class="footer__logo">

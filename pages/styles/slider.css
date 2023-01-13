@@ -1,9 +1,4 @@
-.wrapper span {
-	min-width: 100%;
-	color: var(--sl-color-control-xl);
-}
-
-.wrapper {
+.slider {
 	display: flex;
 	flex-direction: column;
 	padding: 4vw;
@@ -14,51 +9,62 @@
 	background-color: var(--sl-color-background);
 }
 
-.wrapper input {
+.slider--hidden {
+	overflow: hidden;
+}
+
+
+.slider span {
+	min-width: 100%;
+	color: var(--sl-color-control-xl);
+}
+.slider input {
 	display: none;
 }
-
-.wrapper .section:first-of-type {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+.slider .slider__section:first-of-type {
+	border: 1%px solid rgba(0, 0, 0, 0.1);
 	border-radius: 20px;
+	/*overflow: hidden;*/
 }
 
-.wrapper .section:last-of-type {
+ 
+.slider .slider__section:last-of-type {
 	margin-top: 1rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.wrapper .section:first-of-type>.article:first-child {
+.slider .slider__section:first-of-type>.slider__article:first-child {
 	display: flex;
 	flex-direction: row;
 	transition: ease-in-out .8s;
 }
 
-.wrapper .section:last-of-type>.article:first-child {
-	overflow: hidden;
+.slider .slider__section:last-of-type>.slider__article:first-child {
+	/*overflow: hidden;*/
 }
 
-.article:nth-of-type(1) img {
+.slider__article:nth-of-type(1) img {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
 		max-height: 630px;
     height: auto;
     display: block;
+		padding-right: 1%;
 }
 
-.controls {
+.slider__controls {
 	display: flex;
 }
 
-.controls label {
+.slider__controls label {
 	cursor: pointer;
 	padding: .5rem .5rem .9rem .5rem;
 }
 
-.bnt {
+.slider__bnt {
 	display: flex;
 	width: 1.5rem;
 	height: 1.5rem;
@@ -70,44 +76,41 @@
 
 }
 
-.controls label:hover .bnt {
+.slider__controls label:hover .bnt {
 	background: var(--sl-color-control-xl);
 	border-color: var(--sl-color-control-xl);
 }
 
-.controls label:active .bnt {
+.slider__controls label:active .bnt {
 	background: var(--sl-color-background);
 }
 
-.wrapper input:nth-child(1):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-1"]>span,
-.wrapper input:nth-child(2):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-2"]>span,
-.wrapper input:nth-child(3):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-3"]>span,
-.wrapper input:nth-child(4):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-4"]>span,
-.wrapper input:nth-child(5):checked~.section:last-of-type>.article:last-child>.controls>label[for="button-5"]>span {
+.slider input:nth-child(1):checked~.slider__section:last-of-type>.slider__article:last-child>.slider__controls>label[for="button-1"]>span,
+.slider input:nth-child(2):checked~.slider__section:last-of-type>.slider__article:last-child>.slider__controls>label[for="button-2"]>span,
+.slider input:nth-child(3):checked~.slider__section:last-of-type>.slider__article:last-child>.slider__controls>label[for="button-3"]>span,
+.slider input:nth-child(4):checked~.slider__section:last-of-type>.slider__article:last-child>.slider__controls>label[for="button-4"]>span,
+.slider input:nth-child(5):checked~.slider__section:last-of-type>.slider__article:last-child>.slider__controls>label[for="button-5"]>span {
 	background: var(--sl-color-background);
 }
 
+.slider input:nth-child(1):checked~.slider__section:first-of-type>.slider__article:first-child {
+	transform: translateX(-101%);
+}
 
-.wrapper input:nth-child(1):checked~.section:first-of-type>.article:first-child {
-	transform: translateX(0%);
+.slider input:nth-child(2):checked~.slider__section:first-of-type>.slider__article:first-child {
+	transform: translateX(-202%);
+}
+
+.slider input:nth-child(3):checked~.slider__section:first-of-type>.slider__article:first-child {
+	transform: translateX(-303%);
 }
 
 
-.wrapper input:nth-child(2):checked~.section:first-of-type>.article:first-child {
-	transform: translateX(-100%);
+.slider input:nth-child(4):checked~.slider__section:first-of-type>.slider__article:first-child {
+	transform: translateX(-404%);
 }
 
 
-.wrapper input:nth-child(3):checked~.section:first-of-type>.article:first-child {
-	transform: translateX(-200%);
-}
-
-
-.wrapper input:nth-child(4):checked~.section:first-of-type>.article:first-child {
-	transform: translateX(-300%);
-}
-
-
-.wrapper input:nth-child(5):checked~.section:first-of-type>.article:first-child {
-	transform: translateX(-400%);
+.slider input:nth-child(5):checked~.slider__section:first-of-type>.slider__article:first-child {
+	transform: translateX(-502%);
 }
