@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="../styles/normalize.css" />
   <link rel="stylesheet" href="../styles/style.css" />
   <link rel="stylesheet" href="../../assets/fonts/fonts.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <script src="../js/script.js"></script>
   <title>Mobile Sauna booking - Hot huts</title>
 </head>
 
 <body>
   <header class="header header_background">
-    <div class="wrapper">
+    <div class="wrapper wrapper__header">
       <div class="header__naviline">
         <a href="/">
           <object type="image/svg+xml" data="../../assets/icons/logo.svg">
@@ -53,8 +54,8 @@
               into a double bed. Up to four people at a time can enjoy the soft warmth of the spacious sauna. The
               heat-insulated cabin trailer is suited to year-round use.</p>
           </div>
-          <img class="info_features" src="../../assets/images/sauna1.png" alt="The Sauna">
-          <img src="../../assets/images/inside1.png" alt="The Sauna">
+          <img class="" src="../../assets/images/sauna1.png" alt="The Sauna">
+          <img class="" src="../../assets/images/inside1.png" alt="The Sauna">
           <div class="info_delivery">
             <h3 class="delivery__title">Turnkey delivery</h3>
             <p class="delivery__text">We fully organize delivery at the right time and place that you specify
@@ -65,61 +66,73 @@
           <img src="../../assets/images/inside2.png" width="320" height="320" alt="The Sauna">
           <div class="info_prices">
             <h3 class="prices__title">Prices</h3>
-            <p class="prices__info">$99 hour</p>
-            <p class="prices__info">$299 day</p>
+            <p>from</p>
+            <p class="prices__info">
+              <span>$99</span>
+              <sub class="info_color_light info_sub_small">hour</sub>
+            </p>
+            <p class="prices__info">
+              <span>$299</span>
+              <span class="info_color_light info_sub_small">day</span>
+            </p>
           </div>
         </article>
     </section>
 
     <section class="booking">
-      <div class="wrapper wrapper_background_lite">
-        <h2>Book a sauna<span>
-            <object type="image/svg+xml" data="../../assets/icons/list.svg">Your browser
-              does not
-              support SVG</object>
-          </span></h2>
-        <p>Choose the place where you will deliver the sauna, dates and additional options</p>
-        <label for="dropdown">Sauna type:</label>
-        <div class="dropdown">
-          <input type="text" onclick="myFunction()" class="dropdown" placeholder="Finnish mobile sauna">
-          <div id="myDropdown" class="dropdown-content">
-            <option value="item 1">item 1</option>
-            <option value="item 2">item 2</option>
-            <option value="item 3">item 3</option>
-            <option value="item 4">item 4</option>
-            <option value="item 5">item 5</option>
-            <option value="item 6">item 6</option>
+      <div class="wrapper wrapper_radius">
+        <article class="booking_form">
+          <h2 class="form__title">Book a sauna<span>
+              <object type="image/svg+xml" data="../../assets/icons/list.svg">Your browser
+                does not
+                support SVG</object>
+            </span></h2>
+          <p>Choose the place where you will deliver the sauna, dates and additional options</p>
+          <label for="dropdown">Sauna type:</label>
+          <div class="dropdown">
+            <input type="text" onclick="myFunction()" class="dropdown" placeholder="Finnish mobile sauna">
+            <div id="myDropdown" class="dropdown-content">
+              <option value="item 1">item 1</option>
+              <option value="item 2">item 2</option>
+              <option value="item 3">item 3</option>
+              <option value="item 4">item 4</option>
+              <option value="item 5">item 5</option>
+              <option value="item 6">item 6</option>
+            </div>
           </div>
-        </div>
-        <label for="datein">Choose dates:</label>
-        <input id="datein" type="datetime-local" name="calendar">
-        <input id="dateout" type="date" name="calendar">
+          <label for="datein">Choose dates:</label>
+          <input id="datein" type="datetime-local" name="calendar">
+          <input id="dateout" type="date" name="calendar">
+        </article>
+        <article class="booking_slider">
+          <img class="" src="../../assets/images/sauna620x620.png" alt="The Sauna">
+        </article>
       </div>
     </section>
 
     <section class="advantage">
       <div class="wrapper advantage_wrapper">
-        <div>
+        <article class="adwantage__block">
           <object type="image/svg+xml" data="../../assets/images/Union1.svg" width="60" height="60">Your browser does
             not
             support SVG</object>
           <h2>Ease of mobility</h2>
           <p>No matter the time or place, you can organize your sauna vacation whenever you want.</p>
-        </div>
-        <div>
+        </article class="adwantage__block">
+        <article class="adwantage__block">
           <object type="image/svg+xml" data="../../assets/images/Union2.svg" width="60" height="60">Your browser does
             not
             support SVG</object>
           <h2>Year-round service</h2>
           <p>Designed to function in all seasons, hot summers and snowy winters.</p>
-        </div>
-        <div>
+        </article class="adwantage__block">
+        <article class="adwantage__block">
           <object type="image/svg+xml" data="../../assets/images/Union3.svg" width="60" height="60">Your browser does
             not
             support SVG</object>
           <h2>Turnkey delivery</h2>
           <p>We will deliver you a ready-to-use house, as well as all the additional options that you wish.</p>
-        </div>
+        </article class="adwantage__block">
       </div>
     </section>
 
@@ -164,38 +177,43 @@
     </section>
 
     <section class="specification">
-      <div class="wrapper">
-        <h2 class="section5__title">Sauna details</h2>
-        <div class="details">
-          <img src="../../assets/images/drawing.png" alt="The Sauna" class="section5__picture">
-          <div class="details__info">
-            <h3 class="details__title">Technical specification</h3>
-            <ul class="details__characteristics">
-              <li class="details__item">Length 6,200 mm </li>
-              <li class="details__item">Width 2,400 mm</li>
-              <li class="details__item">Total weight about 2,400 kg</li>
-            </ul>
+      <div class="wrapper specification__wrapper">
+        <div class="specification_content">
+          <div>
+            <h2 class="specification__title">Sauna details</h2>
+            <img src="../../assets/images/drawing.png" alt="The Sauna" class="section5__picture">
           </div>
-        </div>
-    </section>
-
-    <section class="instagram">
-      <div class="wrapper">
-        <div class="instagram">
-          <h3 class="instagram__title">Instagram</h3>
-          <a href="#!" class="instagram__link">@hothuts</a>
-        </div>
-        <div class="instagram__gallery">
-          <img src="../../assets/images/image4.png" alt="The Sauna" class="instagram__picture">
-          <img src="../../assets/images/inside1.png" alt="The Sauna" class="instagram__picture">
-          <img src="../../assets/images/inside2.png" alt="The Sauna" class="instagram__picture">
-          <img src="../../assets/images/image5.png" alt="The Sauna" class="instagram__picture">
+          <div>
+            <div class="characteristics__info">
+              <h3 class="characteristics__title">Technical specification</h3>
+              <ul class="characteristics_name">
+                <li class="name__item">Length 6,200 mm </li>
+                <li class="name__item">Width 2,400 mm</li>
+                <li class="name__item">Total weight about 2,400 kg</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="questions">
+    <section class="instagram">
       <div class="wrapper">
+        <div instagram_line>
+          <h3 class="instagram__title">Instagram</h3>
+          <a href="#!" class="instagram__link">@hothuts</a>
+        </div>
+        <div class="instagram_gallery">
+          <img class="gallery__picture" src="../../assets/images/image4.png" alt="The Sauna" >
+          <img class="gallery__picture" src="../../assets/images/inside1.png" alt="The Sauna">
+          <img class="gallery__picture" src="../../assets/images/inside2.png" alt="The Sauna">
+          <img class="gallery__picture" src="../../assets/images/image5.png" alt="The Sauna">
+        </div>
+      </div>
+    </section>
+
+    <section class="questions questions_background">
+      <div class="wrapper questions_wrapper">
         <h2 class="questions__title">FAQ</h2>
         <div class="questions__block">
           <div class="accordion">
@@ -232,8 +250,8 @@
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="wrapper">
+  <footer class="footer footer_background">
+    <div class="wrapper footer_wrapper">
       <div class="footer__logo">
         <a href="#">
           <object type="image/svg+xml" data="../../assets/icons/logo.svg">
