@@ -2,7 +2,7 @@
 @import url('../styles/slider.css');
 
 :root {
-    --content-width: 80%;
+    --content-width: 83.33%;
     --content-max-width: 1680px;
     --color-background-dark: #E5E5E5;
     --color-background-light: #FFFFFF;
@@ -11,7 +11,7 @@
     --color-primary: #F1CDB3;
     --color-primary-light: #FDDCC4;
     --color-dark-xl: #333333;
-/*    ----for slider----   */    
+    /*    ----for slider----   */
     --sl-content-width: 60%;
     --sl-content-min-width: 360px;
     --sl-color-background: var(--color-background);
@@ -88,19 +88,18 @@ h3 {
     width: 100%;
     margin: 0 auto;
     background: var(--color-background-dark);
-    /*border: 1px dotted darkblue;*/
-
+    /*border: 2px dotted darkblue;*/
 }
 
 .wrapper {
     max-width: var(--content-width);
     width: 100%;
     margin: 0 auto;
-    /*border: 1px dotted red;*/
+    /*border: 2px dotted red;*/
 }
 
 .wrapper_border {
-    border-bottom: 2px solid #E0DEDB ;
+    border-bottom: 2px solid #E0DEDB;
 }
 
 .wrapper_background_lite {
@@ -136,21 +135,26 @@ h3 {
     background-size: cover;
 }
 
+.wrapper__header {
+    width: 80%;
+}
+
 .header__naviline {
     padding-top: 5.0rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: 'TT Wellingtons';
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 2.2rem;
 }
 
 .header__navigation {
+    font-family: 'TT Wellingtons';
+    font-size: 1.8rem;
+    font-weight: 700;
+    /*line-height: 2.16rem;*/
     display: flex;
     flex-direction: row;
-    /*justify-content: space-between;*/
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navigation__link {
@@ -186,20 +190,36 @@ h3 {
     padding-top: 10rem;
 }
 
+/*
+.features img,
+div {
+    border: 2px dotted darkgreen;
+}
+*/
 .features__info {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: stretch;
-    overflow: hidden;
-    padding-bottom: 12rem;
+    margin-bottom: 10.0rem;
+}
+
+.features__info div,
+img {
+    margin-bottom: 4.0rem;
+    border-radius: 20px;
 }
 
 .info_features {
-    flex-basis: 45%;
-    margin-bottom: 4rem;
+    overflow: hidden;
+    background-color: var(--color-background-dark);
+}
 
+.info_features {
+    font-size: 1.6rem;
+    flex-basis: 44%;
+    margin-bottom: 4rem;
+    padding-left: 3.5rem;
 }
 
 .features__title {
@@ -208,56 +228,129 @@ h3 {
 
 .features__text {
     padding-top: 3rem;
-    margin-right: 7rem;
 }
 
 .info_delivery,
-.info_prices
- {
+.info_prices {
+    font-family: 'TT Wellingtons';
     background: var(--color-background-light);
     box-shadow: 0px 20px 50px rgba(25, 34, 41, 0.1);
     border-radius: 20px;
     max-width: 32rem;
-    margin: 0rem 0rem 0rem 4.0rem;
+    min-width: 26rem;
+    color: #30261D;
+    max-width: 32.0rem;
+}
+
+.delivery__title {
+    padding-bottom: 3.0rem;
+    max-width: 60%;
+    line-height: 3.84rem;
+}
+
+.delivery__text {
+    font-size: 2.0rem;
+    line-height: 2.8rem;
+    max-width: 26.0rem;
+
+}
+
+.info_delivery {
+    font-size: 2.0rem;
+    line-height: 2.8rem;
+    padding: 3.0rem;
+}
+
+.info_prices {
+    font-family: 'TT Wellingtons';
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+    text-align: left;
+    padding: 3.0rem;
+}
+
+.info_prices :nth-child(2) {
+    padding-bottom: 1.8rem;
+}
+
+.info_prices :nth-child(3) {
+    padding-bottom: 2.0rem;
 }
 
 .prices__title {
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-bottom: 30px;
-}
-
-.info__text {
-    font-size: 2rem;
-    line-height: 2.8rem;
-    padding: 0 30px;
+    font-size: 3.2rem;
+    padding-bottom: 4.8rem;
 }
 
 .prices__info {
-    padding: 44px 132px 20px 30px;
+    font-family: 'TT Wellingtons';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 6.4rem;
+    line-height: 100%;
+
 }
 
-/******** -- booking section styles-- ********/
+.info_sub_small {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+}
 
-.booking h2 {
+.info_color_light {
+    color: #888888;
+}
+
+
+
+
+/******** -- booking section styles-- ********/
+.wrapper_radius {
+    border-radius: 20px;
+    background-color: var(--color-background-light);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.booking_form {
+    display: flex;
+    flex-direction: column;
+    margin: 6.0rem 2.0rem 6.0rem 6.0rem;
+}
+
+.form__title {
     font-family: 'TT Wellingtons';
     font-style: normal;
     font-weight: 400;
     font-size: 4.8rem;
     line-height: 100%;
     color: #30261D;
+
+}
+
+.booking_slider {
+    margin: 6.0rem 6.0rem 6.0rem 2.0rem;
+    display: flex;
+    flex-direction: column;
 }
 
 /******** -- advantage section styles-- ********/
 
 .advantage_wrapper {
+    width: 76%;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     overflow: hidden;
     padding-top: 4.0rem;
     padding-bottom: 12rem;
+}
+
+.adwantage__block {
+    max-width: 33.6rem;
 }
 
 /******** -- carusel section styles-- ********/
@@ -267,34 +360,40 @@ h3 {
 }
 
 /******** -- specification section styles-- ********/
-.section5 {
-    padding: 100px 0;
+.specification__wrapper {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.section5__title {
+.specification__title {
     font-size: 6rem;
     line-height: 6rem;
     padding-bottom: 60px;
 }
 
-.details {
+.specification_content {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.details__info {
+.characteristics__info {
     margin-left: 100px;
 }
 
-.details__title {
+.characteristics__title {
     padding-bottom: 40px;
 
 }
 
 /******** -- instagram section styles-- ********/
-.instagram {
+.instagram_line {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding-bottom: 60px;
 }
 
 .instagram__title {
@@ -308,27 +407,41 @@ h3 {
     font-weight: 500;
     font-size: 2.4rem;
     line-height: 2.4rem;
-    color: var(--color-primary-link);
+    color: #9E7D43;
 }
 
 .instagram__link:hover {
     color: var(--color-primary-dark);
 }
 
-.instagram__gallery {
+.instagram_gallery {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 60px;
 }
 
-.instagram__picture {
-    padding-right: 40px;
+.gallery__picture {
+    flex: 1 0;
     padding-bottom: 100px;
+    max-width: 320px;
+    border-radius: 20px;
 }
+
+.gallery__picture:not(:last-child) {
+    margin-right: 2.5%;
+}
+
 
 /******** -- questions section styles-- ********/
 
 .questions_wrapper {
-    background: #FFFFFF;
-    padding: 100px 110px 0;
+  margin-top: 10rem;;
+}
+
+.questions_background {
+    background-color: var(--color-background-light);
 }
 
 .questions__title {
@@ -396,17 +509,13 @@ h3 {
 }
 
 /******** -- footer section styles -- ********/
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-}
-
 .footer_background {
+    background-color: var(--color-background-footer);
+
+}
+.footer_wrapper{
     padding: 60px 70px 21px 70px;
 }
-
-
 
 .footer__logo {
     padding-left: 125px;
