@@ -1,0 +1,43 @@
+.instagram_line {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.instagram__title {
+  font-size: 4.8rem;
+  line-height: 4.8rem;
+}
+
+.instagram__link {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  color: #9E7D43;
+}
+
+.instagram__link:hover {
+  color: var(--color-primary-dark);
+}
+
+.instagram_gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 60px;
+}
+
+.gallery__picture {
+  flex: 1 0;
+  padding-bottom: 100px;
+  max-width: 320px;
+  border-radius: 20px;
+}
+
+.gallery__picture:not(:last-child) {
+  margin-right: 2.5%;
+}

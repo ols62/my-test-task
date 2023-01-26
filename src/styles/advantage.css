@@ -1,0 +1,13 @@
+.advantage_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-top: 4.0rem;
+  padding-bottom: 12rem;
+}
+
+.adwantage__block {
+  max-width: 33.6rem;
+}

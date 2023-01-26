@@ -50,7 +50,7 @@
   src: local('Sofia Pro Medium'), local('SofiaProMedium'),
     url('./SofiaProMedium.eot?#iefix') format('embedded-opentype'),
     url('./SofiaProMedium.woff2') format('woff2'),
-    url('../SofiaProMedium.woff') format('woff'),
+    url('./SofiaProMedium.woff') format('woff'),
     url('./SofiaProMedium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
@@ -58,7 +58,7 @@
 
 @font-face {
   font-family: 'Sofia Pro';
-  src: url('../../assets/fonts/SofiaProBold.eot');
+  src: url('./SofiaProBold.eot');
   src: local('Sofia Pro Bold'), local('SofiaProBold'),
     url('./SofiaProBold.eot?#iefix') format('embedded-opentype'),
     url('./SofiaProBold.woff2') format('woff2'),
@@ -74,7 +74,7 @@
   src: local('Sofia Pro Regular'), local('SofiaProRegular'),
     url('./SofiaProRegular.eot?#iefix') format('embedded-opentype'),
     url('./SofiaProRegular.woff2') format('woff2'),
-    url('./SofiaProRegular./../assets/fonts/SofiaProRegular.ttf') format('truetype');
+    url('./SofiaProRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

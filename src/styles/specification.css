@@ -1,0 +1,27 @@
+.specification__wrapper {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.specification__title {
+  font-size: 6rem;
+  line-height: 6rem;
+  padding-bottom: 60px;
+}
+
+.specification_content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.characteristics__info {
+  margin-left: 100px;
+}
+
+.characteristics__title {
+  padding-bottom: 40px;
+
+}
