@@ -2,23 +2,24 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="../styles/normalize.css" />
-  <link rel="stylesheet" href="../styles/style.css" />
-  <link rel="stylesheet" href="../../assets/fonts/fonts.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <script src="../js/script.js"></script>
+  <meta charset="utf-8">
+   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Mobile Sauna booking - Hot huts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <header class="header header_background">
-    <div class="wrapper wrapper__header">
+  <!--div class="section-wrapper">
+    <p class="test">
+  test
+    </p>
+  </div-->
+  <header class="header section-wrapper ">
+    <div class="content-wrapper header_wrapper">
       <div class="header__naviline">
-        <a href="/">
-          <object type="image/svg+xml" data="../../assets/icons/logo.svg">
-            Your brouser does not support SVG
+        <a href="#">
+          <object type="image/svg+xml" data="../images/icons/logo.svg">
+            Your browser does not support SVG
           </object>
         </a>
         <nav class="header__navigation">
@@ -28,22 +29,22 @@
         </nav>
       </div>
       <article class="header__promo">
-        <h1>Sauna on wheels for your relaxation wherever you are</h1>
+        <h1 class="header_promo__title">Sauna on wheels for your relaxation wherever you are</h1>
         <div class="promo__button">
-          <button class="button_primary">BOOK A SAUNA</button>
-          <button class="button_scondary">LEARN MORE</button>
+          <button class="button-primary">BOOK A SAUNA</button>
+          <button class="button-scondary">LEARN MORE</button>
         </div>
       </article>
     </div>
   </header>
+  <%= require('./header.html').default %>
   <main>
-
-    <section class="features">
-      <div class="wrapper wrapper_border">
+    <section class="features section-wrapper">
+      <div class="content-wrapper features_border">
         <article class="features__info">
-          <div class="info_features">
-            <h2 class="features__title">What features and what you can get</h2>
-            <p class="features__text">The cabin trailer with a sauna goes with you to where you want to go!
+          <div class="info-features">
+            <h2 class="info-features__title">What features and what you can get</h2>
+            <p class="info-features__text">The cabin trailer with a sauna goes with you to where you want to go!
               This
               cabin
               trailer combines a comfortable kitchen and living room combo with a fantastic sauna that offers soft,
@@ -54,80 +55,76 @@
               into a double bed. Up to four people at a time can enjoy the soft warmth of the spacious sauna. The
               heat-insulated cabin trailer is suited to year-round use.</p>
           </div>
-          <img class="" src="../../assets/images/sauna1.png" alt="The Sauna">
-          <img class="" src="../../assets/images/inside1.png" alt="The Sauna">
-          <div class="info_delivery">
-            <h3 class="delivery__title">Turnkey delivery</h3>
-            <p class="delivery__text">We fully organize delivery at the right time and place that you specify
+          <img src="../images/img/sauna1.png" alt="The Sauna">
+          <img src="../images/img/inside1.png" alt="The Sauna">
+          <div class="info-delivery">
+            <h3 class="info-delivery__title">Turnkey delivery</h3>
+            <p class="info-delivery__text">We fully organize delivery at the right time and place that you specify
               when
               ordering.
             </p>
           </div>
-          <img src="../../assets/images/inside2.png" width="320" height="320" alt="The Sauna">
-          <div class="info_prices">
-            <h3 class="prices__title">Prices</h3>
-            <p>from</p>
-            <p class="prices__info">
-              <span>$99</span>
-              <sub class="info_color_light info_sub_small">hour</sub>
+          <img src="../images/img/inside2.png" width="320" height="320" alt="The Sauna">
+          <div class="info-prices">
+            <h3 class="info-prices__title">Prices</h3>
+            <p class="info-prices__text">from</p>
+            <p class="info-prices__text">
+              <span class="info-prices__cost">$99</span>
+              <span class="info-prices__small info-prices_color"> hour</span>
             </p>
-            <p class="prices__info">
-              <span>$299</span>
-              <span class="info_color_light info_sub_small">day</span>
+            <p>
+              <span class="info-prices__cost">$299</span>
+              <span class="info-prices__small info-prices_color"> day</span>
             </p>
           </div>
         </article>
     </section>
-
-    <section class="booking">
-      <div class="wrapper wrapper_radius">
+    <section class="booking section-wrapper">
+      <div class=" content-wrapper booking_wrapper">
         <article class="booking_form">
-          <h2 class="form__title">Book a sauna<span>
-              <object type="image/svg+xml" data="../../assets/icons/list.svg">Your browser
+          <h2 class="booking_form__title">Book a sauna<span>
+              <object type="image/svg+xml" data="../images/icons/list.svg">Your browser
                 does not
                 support SVG</object>
             </span></h2>
           <p>Choose the place where you will deliver the sauna, dates and additional options</p>
-          <label for="dropdown">Sauna type:</label>
-          <div class="dropdown">
-            <input type="text" onclick="myFunction()" class="dropdown" placeholder="Finnish mobile sauna">
-            <div id="myDropdown" class="dropdown-content">
-              <option value="item 1">item 1</option>
-              <option value="item 2">item 2</option>
-              <option value="item 3">item 3</option>
-              <option value="item 4">item 4</option>
-              <option value="item 5">item 5</option>
-              <option value="item 6">item 6</option>
-            </div>
+          <label class="booking_form__label">Sauna type:</label>
+          <select class="select-css">
+            <option>Finnish mobile sauna</option>
+            <option>item-1</option>
+            <option>item-2</option>
+            <option>item-3</option>
+            <option>item-4</option>
+          </select>
+          <label class="booking_form__label" for="datein">Choose dates:</label>
+          <div>
+            <input class="datetime-css" type="datetime-local" name="calendar" pattern="">
+            <input class="datetime-css" type="date" name="calendar">
           </div>
-          <label for="datein">Choose dates:</label>
-          <input id="datein" type="datetime-local" name="calendar">
-          <input id="dateout" type="date" name="calendar">
         </article>
-        <article class="booking_slider">
-          <img class="" src="../../assets/images/sauna620x620.png" alt="The Sauna">
-        </article>
+        <div class="booking_slider">
+          <img class="" src="../images/img/sauna620x620.png" alt="The Sauna">
+        </div>
       </div>
     </section>
-
     <section class="advantage">
       <div class="wrapper advantage_wrapper">
         <article class="adwantage__block">
-          <object type="image/svg+xml" data="../../assets/images/Union1.svg" width="60" height="60">Your browser does
+          <object type="image/svg+xml" data="../images/img/Union1.svg" width="60" height="60">Your browser does
             not
             support SVG</object>
           <h2>Ease of mobility</h2>
           <p>No matter the time or place, you can organize your sauna vacation whenever you want.</p>
         </article class="adwantage__block">
         <article class="adwantage__block">
-          <object type="image/svg+xml" data="../../assets/images/Union2.svg" width="60" height="60">Your browser does
+          <object type="image/svg+xml" data="../images/img/Union2.svg" width="60" height="60">Your browser does
             not
             support SVG</object>
           <h2>Year-round service</h2>
           <p>Designed to function in all seasons, hot summers and snowy winters.</p>
         </article class="adwantage__block">
         <article class="adwantage__block">
-          <object type="image/svg+xml" data="../../assets/images/Union3.svg" width="60" height="60">Your browser does
+          <object type="image/svg+xml" data="../images/img/Union3.svg" width="60" height="60">Your browser does
             not
             support SVG</object>
           <h2>Turnkey delivery</h2>
@@ -135,7 +132,6 @@
         </article class="adwantage__block">
       </div>
     </section>
-
     <section class="carusel">
       <div class="slider">
         <input type="radio" id="button-1" name="buttons" checked="checked" />
@@ -143,23 +139,23 @@
         <input type="radio" id="button-3" name="buttons" />
         <div class="slider__section">
           <div class="slider__article">
-            <img src="../../assets/images/sauna3.png" alt="The Sauna">
-            <img src="../../assets/images/sauna3.png" alt="The Sauna">
-            <img src="../../assets/images/sauna3.png" alt="The Sauna">
-            <img src="../../assets/images/sauna3.png" alt="The Sauna">
-            <img src="../../assets/images/sauna3.png" alt="The Sauna">
+            <img src="../images/img/sauna3.png" alt="The Sauna">
+            <img src="../images/img/sauna3.png" alt="The Sauna">
+            <img src="../images/img/sauna3.png" alt="The Sauna">
+            <img src="../images/img/sauna3.png" alt="The Sauna">
+            <img src="../images/img/sauna3.png" alt="The Sauna">
           </div>
         </div>
         <a href="#" role="button" class="u-gallery-nav-1">
           <span>
-            <object type="image/svg+xml" data="../../assets/icons/arrow_left_dark.svg">Your browser
+            <object type="image/svg+xml" data="../images/icons/arrow_left_dark.svg">Your browser
               does not
               support SVG</object>
           </span>
         </a>
         <a href="#" role="button" class="u-gallery-nav-2">
           <span>
-            <object type="image/svg+xml" data="../../assets/icons/arrow_right_dark.svg">Your browser
+            <object type="image/svg+xml" data="../images/icons/arrow_right_dark.svg">Your browser
               does not
               support SVG</object>
           </span>
@@ -175,13 +171,12 @@
         </div>
       </div>
     </section>
-
     <section class="specification">
       <div class="wrapper specification__wrapper">
         <div class="specification_content">
           <div>
             <h2 class="specification__title">Sauna details</h2>
-            <img src="../../assets/images/drawing.png" alt="The Sauna" class="section5__picture">
+            <img src="../images/img/drawing.png" alt="The Sauna" class="section5__picture">
           </div>
           <div>
             <div class="characteristics__info">
@@ -196,7 +191,6 @@
         </div>
       </div>
     </section>
-
     <section class="instagram">
       <div class="wrapper">
         <div instagram_line>
@@ -204,25 +198,22 @@
           <a href="#!" class="instagram__link">@hothuts</a>
         </div>
         <div class="instagram_gallery">
-          <img class="gallery__picture" src="../../assets/images/image4.png" alt="The Sauna" >
-          <img class="gallery__picture" src="../../assets/images/inside1.png" alt="The Sauna">
-          <img class="gallery__picture" src="../../assets/images/inside2.png" alt="The Sauna">
-          <img class="gallery__picture" src="../../assets/images/image5.png" alt="The Sauna">
+          <img class="gallery__picture" src="../images/img/image4.png" alt="The Sauna">
+          <img class="gallery__picture" src="../images/img/inside1.png" alt="The Sauna">
+          <img class="gallery__picture" src="../images/img/inside2.png" alt="The Sauna">
+          <img class="gallery__picture" src="../images/img/image5.png" alt="The Sauna">
         </div>
       </div>
     </section>
-
     <section class="questions questions_background">
       <div class="wrapper questions_wrapper">
         <h2 class="questions__title">FAQ</h2>
         <div class="questions__block">
           <div class="accordion">
-            <div class="accordion__item accordion__item--active">
+            <div class="accordion__item accordion_item_active">
               <span class="item-text">How many people can fit in the sauna?</span>
-              <span class="item-arrow"> <object type="image/svg+xml" data="../../assets/icons/arrow-right-qw.svg">Your
-                  browser
-                  does not
-                  support SVG</object></span>
+              <span class="item-arrow"><object type="image/svg+xml" data="../images/icons/arrow-right-qw.svg">Your
+                  browser does not support SVG</object></span>
             </div>
             <div class="accordion__item">
               <span class="item-text">How to pay for your order?</span>
@@ -251,10 +242,10 @@
     </section>
   </main>
   <footer class="footer footer_background">
-    <div class="wrapper footer_wrapper">
+    <div class="wrapper wrapper_footer">
       <div class="footer__logo">
         <a href="#">
-          <object type="image/svg+xml" data="../../assets/icons/logo.svg">
+          <object type="image/svg+xml" data="../images/icons/logo.svg">
             Your browser does not support SVG
           </object>
         </a>
@@ -285,17 +276,17 @@
       </nav>
       <div class="footer__social-media">
         <a href="#" class="social-media">
-          <object type="image/svg+xml" data="../../assets/images/facebook.svg">
+          <object type="image/svg+xml" data="../images/img/facebook.svg">
             Your browser does not support SVG
           </object>
         </a>
         <a href="#" class="social-media">
-          <object type="image/svg+xml" data="../../assets/images/you_tube.svg">
+          <object type="image/svg+xml" data="../images/img/you_tube.svg">
             Your browser does not support SVG
           </object>
         </a>
         <a href="#" class="social-media">
-          <object type="image/svg+xml" data="../../assets/images/instagram.svg">
+          <object type="image/svg+xml" data="../images/img/instagram.svg">
             Your browser does not support SVG
           </object>
         </a>

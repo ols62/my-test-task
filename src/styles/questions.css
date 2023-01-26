@@ -1,0 +1,73 @@
+.questions_wrapper {
+  margin-top: 10rem;
+  ;
+}
+
+.questions_background {
+  background-color: var(--color-background-light);
+}
+
+.questions__title {
+  padding-bottom: 60px;
+  padding-left: 30px;
+}
+
+.questions-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+}
+
+.accordion__item {
+  display: inline;
+  padding: 14px 30px;
+  border-bottom: 1px solid #EDF2EC;
+  border-radius: 12px;
+}
+
+.accordion_item_active {
+  border: 1px solid #EDF2EC;
+  background: #F6F5F3;
+  border-radius: 12px;
+}
+
+.item-text {
+  font-family: 'TT Wellingtons';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 3.2rem;
+}
+
+.item-arrow {
+  height: 14px;
+  width: 14px;
+  margin-right: 23px;
+
+}
+
+.answer {
+  border: 1px solid #E0DEDB;
+  box-shadow: 0px 4px 20px rgba(22, 26, 32, 0.06);
+  border-radius: 12px;
+  background: transparent;
+  padding: 30px;
+  max-width: 68rem;
+  margin-bottom: 187px;
+}
+
+.answer__title {
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+  padding-bottom: 20px;
+}
+
+.answer__text {
+  font-size: 1.8rem;
+  line-height: 2.9rem;
+}
