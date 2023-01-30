@@ -12,4 +12,5 @@ import './styles/select-css.css';
 import './styles/slider.css';
 import './fonts/fonts.css';
 import './styles/datetime-css.css';
+import './js/questions'
 
