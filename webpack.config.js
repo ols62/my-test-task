@@ -16,14 +16,14 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[name]_[contenthash][ext]',
+          filename: 'fonts/[contenthash][ext]',
         },
       },
       {
         test: /\.(png|jpg|jpe?g|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name]_[contenthash][ext]',
+          filename: 'images/[contenthash][ext]',
         },
       },
       {
@@ -48,7 +48,7 @@ module.exports = {
         test: /\.svg$/,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name]_[contenthash][ext]',
+          filename: 'images/[contenthash][ext]',
         },
       },
     ],
