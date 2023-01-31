@@ -72,7 +72,6 @@ li {
 .button-primary {
     color: var(--color-text-light);
     background: #9E7D43;
-    margin-right: 1.5rem;
 }
 
 .button-scondary {
@@ -81,29 +80,6 @@ li {
 }
 
 /*
-
-.button_arrow_lf {
-    width: 52px;
-    height: 52px;
-    border-radius: 100px;
-    border: 2px solid #F1CDB3;
-    color: var(--color-dark-3xl);
-    background-color: transparent;
-    background: url(../assets/icons/arrow-left.svg) no-repeat center center;
-    padding: 23px 19px;
-}
-
-.button_arrow_rt {
-    width: 52px;
-    height: 52px;
-    border-radius: 100px;
-    border: 2px solid #F1CDB3;
-    color: var(--color-dark-3xl);
-    background-color: transparent;
-  
-    padding: 23px 19px;
-}
-
 .help_wrapper {
     padding: 80px 0px 100px 0px;
     display: grid;
