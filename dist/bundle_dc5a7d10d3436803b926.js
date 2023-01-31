@@ -1,11 +1,29 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 950:
+/***/ (() => {
+
+var checkbox = document.getElementsByClassName('checkbox-css');
+for (var i = 0; i < checkbox.length; i++) {
+  var element = checkbox[i].getElementsByTagName('input');
+  element[0].addEventListener('change', function (event) {
+    if (event.target.checked) {
+      this.parentElement.style.background = '#9E7D43';
+      this.parentElement.style.color = '#FFFFFF';
+    } else {
+      this.parentElement.style.color = '#30261D';
+      this.parentElement.style.background = '#F6F5F3';
+    }
+  });
+}
+
+/***/ }),
+
 /***/ 389:
 /***/ (() => {
 
 var question = document.getElementsByClassName('question__text');
-console.log(question);
 for (var i = 0; i < question.length; i++) {
   question[i].addEventListener('click', function () {
     var active = false;
@@ -93,8 +111,12 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _js_questions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(389);
-/* harmony import */ var _js_questions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_questions__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_checkbox_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(950);
+/* harmony import */ var _js_checkbox_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_checkbox_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_questions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(389);
+/* harmony import */ var _js_questions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_js_questions__WEBPACK_IMPORTED_MODULE_1__);
+
+
 
 
 

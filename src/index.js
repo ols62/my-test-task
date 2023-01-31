@@ -8,9 +8,11 @@ import './styles/specification.css';
 import './styles/instagram.css';
 import './styles/questions.css';
 import './styles/footer.css';
-import './styles/select-css.css';
 import './styles/slider.css';
 import './fonts/fonts.css';
 import './styles/datetime-css.css';
-import './js/questions'
+import './styles/checkbox-css.css';
+import './styles/select-css.css';
+import './js/checkbox-css';
+import './js/questions';
 

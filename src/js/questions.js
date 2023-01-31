@@ -1,5 +1,4 @@
 let question = document.getElementsByClassName('question__text');
-console.log(question);
 for (let i = 0; i < question.length; i++) {
   question[i].addEventListener('click', function () {
     let active = false;

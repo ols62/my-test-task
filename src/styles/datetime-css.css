@@ -22,12 +22,6 @@
   background-repeat: no-repeat, repeat;
 }
 
-
-
-::-webkit-calendar-picker-indicator {
-  opacity: 0;
-}
-
-::-webkit-datetime-edit {
-  display: none;
+.datetime-css::-webkit-calendar-picker-indicator {
+ opacity: 0;
 }
