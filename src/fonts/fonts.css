@@ -1,11 +1,25 @@
 @font-face {
   font-family: 'Inter';
-  src: local('Inter Regular'), local('Inter-Regular'),
+  src: url('./Inter-Regular.eot');
+  src: local('./Inter Regular'), local('Inter-Regular'),
+      url('./Inter-Regular.eot?#iefix') format('embedded-opentype'),
       url('Inter-Regular.woff2') format('woff2'),
-      url('Inter-Regular.woff') format('woff'),
-      url('Inter-Regular.ttf') format('truetype');
-  font-weight: 400;
+      url('./Inter-Regular.woff') format('woff'),
+      url('./Inter-Regular.ttf') format('truetype');
+  font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+font-family: 'Inter';
+src: url('./Inter-Medium.eot');
+src: local('./Inter Medium'), local('Inter-Medium'),
+    url('./Inter-Medium.eot?#iefix') format('embedded-opentype'),
+    url('./Inter-Medium.woff2') format('woff2'),
+    url('./Inter-Medium.woff') format('woff'),
+    url('./Inter-Medium.ttf') format('truetype');
+font-weight: 500;
+font-style: normal;
 }
 
 @font-face {
@@ -29,6 +43,54 @@
     url('./TTWellingtons-Regular.woff') format('woff'),
     url('./TTWellingtons-Regular.ttf') format('truetype');
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Wellingtons';
+  src: url('./TTWellingtons-Bold.eot');
+  src: local('./TT Wellingtons Bold'), local('TTWellingtons-Bold'),
+      url('./TTWellingtons-Bold.eot?#iefix') format('embedded-opentype'),
+      url('./TTWellingtons-Bold.woff2') format('woff2'),
+      url('./TTWellingtons-Bold.woff') format('woff'),
+      url('./TTWellingtons-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Wellingtons';
+  src: url('./TTWellingtons-Medium.eot');
+  src: local('./TT Wellingtons Medium'), local('TTWellingtons-Medium'),
+      url('./TTWellingtons-Medium.eot?#iefix') format('embedded-opentype'),
+      url('./TTWellingtons-Medium.woff2') format('woff2'),
+      url('./TTWellingtons-Medium.woff') format('woff'),
+      url('./TTWellingtons-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Wellingtons';
+  src: url('./TTWellingtons-Thin.eot');
+  src: local('TT Wellingtons Thin'), local('TTWellingtons-Thin'),
+      url('./TTWellingtons-Thin.eot?#iefix') format('embedded-opentype'),
+      url('./TTWellingtons-Thin.woff2') format('woff2'),
+      url('./TTWellingtons-Thin.woff') format('woff'),
+      url('./TTWellingtons-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Wellingtons';
+  src: url('./TTWellingtons-Light.eot');
+  src: local('./TT Wellingtons Light'), local('TTWellingtons-Light'),
+      url('./TTWellingtons-Light.eot?#iefix') format('embedded-opentype'),
+      url('./TTWellingtons-Light.woff2') format('woff2'),
+      url('./TTWellingtons-Light.woff') format('woff'),
+      url('./TTWellingtons-Light.ttf') format('truetype');
+  font-weight: 300;
   font-style: normal;
 }
 

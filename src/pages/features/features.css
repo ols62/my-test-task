@@ -1,0 +1,137 @@
+.features {
+  padding-top: 10rem;
+}
+
+.features_border {
+  border-bottom: 2px solid #E0DEDB;
+}
+
+.features__info {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2.0rem;
+}
+
+.features__info div,
+img {
+  margin-bottom: 4.0rem;
+  border-radius: 20px;
+}
+
+.info-features {
+  font-size: 1.6rem;
+  flex-basis: 44.5%;
+  margin-bottom: 4rem;
+  padding-left: 3.0rem;
+  overflow: hidden;
+  background-color: var(--color-background-dark);
+}
+
+.info-features__title {
+  font-family: TT Wellingtons;
+  font-size: 6rem;
+  font-weight: 400;
+  line-height: 6rem;
+  letter-spacing: 0rem;
+  text-align: left;
+  max-width: 43.8rem;
+}
+
+.info-features__text {
+  font-family: Inter;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  letter-spacing: 0rem;
+  text-align: left;
+  padding-top: 3rem;
+  margin-left: 0.5rem;
+
+}
+
+.info-delivery {
+  font-size: 2.0rem;
+  line-height: 2.8rem;
+  padding: 3.0rem;
+}
+
+.info-delivery__title {
+  font-family: TT Wellingtons;
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: 3.8rem;
+  letter-spacing: 0rem;
+  text-align: left;
+  max-width: 60%;
+}
+
+.info-delivery__text {
+  margin: 0px;
+  padding-top: 3.0rem;
+  font-size: 2.0rem;
+  line-height: 2.8rem;
+  max-width: 26.0rem;
+}
+
+.info-delivery,
+.info-prices {
+  font-family: 'TT Wellingtons';
+  background: var(--color-background-light);
+  box-shadow: 0px 20px 50px rgba(25, 34, 41, 0.1);
+  border-radius: 20px;
+  max-width: 32rem;
+  min-width: 26rem;
+  color: #30261D;
+}
+
+.info-prices {
+  font-family: 'TT Wellingtons';
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  text-align: left;
+  padding: 3.0rem;
+}
+
+.info-prices__title {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: left;
+  font-size: 3.2rem;
+  padding-bottom: 4.4rem;
+}
+
+.info-prices__text {
+  padding-bottom: 1.8rem;
+   font-family: 'TT Wellingtons';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+}
+
+.info-prices__cost {
+  font-family: 'TT Wellingtons';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 6.3rem;
+  line-height: 6.3rem;
+}
+
+.info-prices__small {
+  font-family: 'TT Wellingtons';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  padding-left: 0.5rem;
+}
+
+.info-prices_color {
+  color: #888888;
+}
