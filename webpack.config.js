@@ -63,14 +63,14 @@ module.exports = {
         onStart: {
           delete: ['dist'],
         },
-        onEnd: {
+        /*onEnd: {
           copy: [
             {
               source: path.join('src', 'static'),
               destination: 'dist',
             },
           ],
-        },
+        },*/
       },
     }),
     new MiniCssExtractPlugin({

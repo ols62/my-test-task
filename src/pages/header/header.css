@@ -1,0 +1,55 @@
+.header {
+  background: url(../../images/img/background.png) no-repeat top center;
+  background-size: cover;
+  height: min(49.0vw, 830px);
+  overflow: hidden;
+}
+
+.header_wrapper {
+  padding: 5.0rem 3.0rem 0rem 3.0rem;
+
+}
+
+.header__naviline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__navigation {
+  font-family: 'TT Wellingtons';
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.16rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navigation__link {
+  margin-left: 4.3rem;
+  color: var(--color-text-light);
+}
+
+.header__promo {
+  margin-top: min(8.09vw, 136px);
+  width: 49.0%;
+  min-width: 356px;
+}
+
+.header_promo__title {
+  color: var(--color-text-light);
+  font-family: 'TT Wellingtons';
+  font-style: normal;
+  font-size: min(4.1vw, 7.0rem);
+  font-weight: 400;
+  line-height: min(4.6vw, 8.4rem);
+  text-align: left;
+}
+
+.promo__button {
+  margin-top: min(2.9vw, 5.0rem);
+}
+
+.button-primary_margin {
+  margin-right: 1.5rem;
+}
