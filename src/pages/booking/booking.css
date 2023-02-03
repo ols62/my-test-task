@@ -1,28 +1,22 @@
 .booking {
-    padding-top: 6.1rem;
+    padding-top: 6.0rem;
     padding-bottom: 5.0rem;
 }
 
 .booking_wrapper {
     background-color: var(--color-background-light);
-    border: 0px;
+    border: 0rem;
     border-radius: 2.0rem;
     box-shadow: 0px 20px 50px rgba(25, 34, 41, 0.1);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.booking__column {
-    width: 44.25%;
-    margin: 6.0rem 2.0rem 6.0rem 6.0rem;
+    display: grid;
+    grid-template-columns: 48.43% 48.43%;
+    column-gap: 3.14%;
+    padding: 6.0rem;
 }
 
 .booking_form {
     display: grid;
-    grid-template-columns: auto;
-    grid-auto-flow: row;
+    grid-template-columns: 100%;
     font-family: 'TT Wellingtons';
     font-style: normal;
     letter-spacing: 0rem;
@@ -30,16 +24,15 @@
 
 .datetime_container {
     display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
-    grid-gap:0px 20px;
+    grid-template-columns: 48.3% 48.3%;
+    column-gap: 3.4%;
 }
 
 .rental_container {
     display: grid;
-    grid-template-columns: 27.5%  69.5%;
-    grid-gap:0px 20px;
+    grid-template-columns: 27.5% 69.5%;
+    column-gap: 3.0%;
 }
-
 
 .booking_form__title {
     font-weight: 400;
@@ -60,8 +53,8 @@
 }
 
 .select-css {
-    box-sizing: border-box;
     display: block;
+    width: 100%;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -69,18 +62,26 @@
     line-height: 3.2rem;
     color: #444;
     padding: 1.3rem 2.0rem 1.3rem 2.0rem;
-    width: 100%;
     background: #FFFFFF;
     border: 1px solid #E0DEDB;
     box-shadow: 0px 4px 20px rgba(22, 26, 32, 0.06);
     border-radius: 12px;
-    background-image: url('../../images/icons/arrow_down.svg');
-    background-position: right 2.3rem center, 0 0;
-    background-repeat: no-repeat;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     margin: 0rem;
+}
+
+.select-css_arrow {
+    background-image: url('../../images/icons/arrow_down.svg');
+    background-position: right 2.3rem center, 0 0;
+    background-repeat: no-repeat;
+}
+
+.select-css_location {
+    background-image: url('../../images/icons/place.svg');
+    background-position: right 2.3rem center, 0 0;
+    background-repeat: no-repeat;
 }
 
 .select-css::-ms-expand {
@@ -102,8 +103,8 @@
     appearance: none;
     background-image: url('../../images/icons/arrow_down.svg');
     background-position: right 2.3rem center, 0 0;
-    margin: 0rem;
     background-repeat: no-repeat;
+    margin: 0rem;
 }
 
 .booking__datetime::-webkit-calendar-picker-indicator {
@@ -111,7 +112,6 @@
 }
 
 .booking_form__label {
-    display: block;
     font-size: 2.0rem;
     font-weight: 700;
     line-height: 120%;
@@ -120,18 +120,81 @@
     margin-bottom: 1.0rem;
 }
 
-.booking_slider {
-    margin: 6.0rem 6.0rem 6.0rem 2.0rem;
-    display: flex;
-    flex-direction: column;
+.option_container {
+    display: inline-block;
+    padding-bottom: 1.9rem;
+    border-bottom: 1px solid #E0DEDB;
+    ;
 }
 
-.booking__button {
+.option_container label {
+    margin: 0rem 1.0rem 1.0rem 0rem;
+}
+
+.option_container>:first-child {
+    min-width: 325px;
+}
+
+.total_container {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 
-.booking_flex {
+.total_container>:last-child {
+    font-family: TT Wellingtons;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.9rem;
+    letter-spacing: 0em;
+    text-align: right;
+}
+
+.booking_img {
+    width: 100%;
+    max-width: 100%;
+    min-width: 320px;
+    height: auto;
+    margin-bottom: 3.0rem;
+}
+
+.booking__button {
+    margin-top: 1.7rem;
+    font-size: 1.8rem;
+    padding: 1.8rem 3rem 1.8rem 3rem;
+}
+
+.booking_accessories {
+    font-family: TT Wellingtons;
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 2.88rem;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #30261D;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
+    background: #FFFFFF;
+    border: 1px solid #E0DEDB;
+    box-shadow: 0px 4px 20px rgba(22, 26, 32, 0.06);
+    border-radius: 12px;
+}
+
+.booking_accessories__text {
+    margin: 2.0rem 2.0rem 1.3rem 3.0rem;
+    width: 19.6rem;
+}
+
+.booking_accessories__summ {
+    font-weight: 700;
+    color: #888888;
+    margin: 0rem 3.0rem 2.0rem 3.0rem;
+}
+
+.booking_accessories__img {
+    width: 100%;
+    max-width: 210px;
+    height: auto;
+    margin: 0.5rem 1.0rem 0.5rem 0rem;
 }
