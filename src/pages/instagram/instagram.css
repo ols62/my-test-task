@@ -1,5 +1,5 @@
 .instagram {
-
+   padding-top: 9.1rem;
 }
 
 .instagram__header {
@@ -40,7 +40,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-bottom: 60px;
+  /*padding-bottom: 60px;*/
 }
 
 .instagram__picture {

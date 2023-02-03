@@ -16,14 +16,14 @@
 }
 
 .features__info div,
-img {
+.features__info img {
   margin-bottom: 4.0rem;
   border-radius: 20px;
 }
 
 .info-features {
   font-size: 1.6rem;
-  flex-basis: 44.5%;
+  flex-basis: 46.9%;
   margin-bottom: 4rem;
   padding-left: 3.0rem;
   overflow: hidden;
@@ -83,7 +83,7 @@ img {
   box-shadow: 0px 20px 50px rgba(25, 34, 41, 0.1);
   border-radius: 20px;
   max-width: 32rem;
-  min-width: 26rem;
+  min-width: 32rem;
   color: #30261D;
 }
 
