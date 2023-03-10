@@ -1,0 +1,69 @@
+.instagram {
+  padding-top: 9.1rem;
+}
+
+.instagram__header {
+  padding: 0rem 3.0rem 6.0rem 3.0rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instagram__title {
+  font-family: TT Wellingtons;
+  font-size: 4.8rem;
+  font-weight: 400;
+  line-height: 4.8rem;
+  letter-spacing: 0rem;
+  text-align: left;
+  color: #30261D;
+
+}
+
+.instagram__link {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  color: #9E7D43;
+}
+
+.instagram__link:hover {
+  color: var(--color-primary-dark);
+}
+
+.instagram__gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: calc(clamp(0.5rem, 2.38vw, 4.0rem));
+  justify-content: space-between;
+  padding-bottom: 100px;
+}
+
+.instagram__picture {
+  min-width: 155px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+
+}
+
+@media screen and (max-width: 1080px) {
+  .instagram {
+    padding: 9.1rem 3.0rem 0rem 3.0rem;
+  }
+
+  .instagram__gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: calc(clamp(0.5rem, 2.38vw, 4.0rem));
+  }
+
+  .instagram__gallery>:nth-child(1),
+  .instagram__gallery>:nth-child(3) {
+    justify-self: end;
+  }
+
+}

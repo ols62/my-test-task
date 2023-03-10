@@ -1,0 +1,148 @@
+.slider {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0px auto;
+	visibility: hidden;
+	transition: ease-in-out .8s;
+}
+
+.carusel_slider {
+	overflow: visible !important;
+}
+
+.slider_wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	transition: ease-in-out .8s;
+}
+
+.slider_wrapper>div {
+	width: 100%;
+}
+
+.slider_wrapper img {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	object-fit: cover;
+	object-position: center;
+	}
+
+.slider_text {
+	position: absolute;
+	color: #FFFFFF;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity  ease-in-out .8s;
+}
+
+.marker_container {
+	position: absolute;
+	bottom:5%;
+	left: calc(50% - 17px);
+	display: flex;
+	justify-content: space-between;
+}
+
+.slider_marker {
+	margin-right: 10px;
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+}
+
+.prev,
+.next {
+	position: absolute;
+	top: calc(50% - 12px);
+	display: inline-block;
+	height: 24px;
+	width: 24px;
+	border-radius: 12px;
+	background-color: #FFFFFFCC;
+	backdrop-filter: blur(30px);
+}
+
+.prev {
+	left: calc(5% - 12px);
+}
+
+.next {
+	right: calc(5% - 12px);
+}
+
+.right-arrow,
+.left-arrow {
+	display: block;
+	margin-top: 6px;
+	margin-left: 8px;
+	width: 1.0rem;
+	height: 1.0rem;
+	border: solid #9E7D43;
+	border-width: 0rem 0rem 0.3rem 0.3rem;
+	transform: rotate(45deg);
+}
+
+.right-arrow {
+	margin-top: 6px;
+	margin-left: 4px;
+	border-width: 0.3rem 0.3rem 0rem 0rem;
+}
+
+.carusel_marker_container {
+	position: absolute;
+	bottom: 4px;
+	left: calc(50% - 18px);
+	display: flex;
+	justify-content: space-between;
+}
+
+.carusel_marker {
+	margin-right: 20px;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+}
+
+.carusel_prev,
+.carusel_next {
+	position: absolute;
+	top: calc(46% - 25px);
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	border-radius: 25px;
+	background-color: #9E7D43;
+	backdrop-filter: blur(30px);
+}
+
+.carusel_prev {
+	left: calc(9% - 20px);
+}
+
+.carusel_next {
+	right: calc(9% - 20px);
+}
+
+
+.carusel_right-arrow,
+.carusel_left-arrow {
+	display: block;
+	margin-top: 16px;
+	margin-left: 16px;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: solid #FFFFFF !important;
+	border-width: 0rem 0rem 0.5rem 0.5rem !important;
+	transform: rotate(45deg);
+}
+
+.carusel_right-arrow {
+	margin-left: 14px !important;
+	border-width: 0.5rem 0.5rem 0rem 0rem !important;
+}

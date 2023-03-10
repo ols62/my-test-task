@@ -5,21 +5,21 @@
   <meta charset="utf-8">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Mobile Sauna booking - Hot huts</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-  <%= require('html-loader!./header/header.html').default %>
+  <%= require('html-loader!./common/header/header.html').default %>
     <main>
-      <%= require('html-loader!./features/features.html').default %>
-      <%= require('html-loader!./booking/booking.html').default %>
-      <%= require('html-loader!./advantage/advantage.html').default %>
-      <%= require('html-loader!./carusel/carusel.html').default %>
-      <%= require('html-loader!./specification/specification.html').default %>
-      <%= require('html-loader!./instagram/instagram.html').default %>
-      <%= require('html-loader!./questions/questions.html').default %>
+      <%= require('html-loader!./main/features/features.html').default %>
+      <%= require('html-loader!./main/booking/booking.html').default %>
+      <%= require('html-loader!./main/advantage/advantage.html').default %>
+      <%= require('html-loader!./main/carusel/carusel.html').default %>
+      <%= require('html-loader!./main/specification/specification.html').default %>
+      <%= require('html-loader!./main/instagram/instagram.html').default %>
+      <%= require('html-loader!./main/questions/questions.html').default %>
     </main>
-    <%= require('html-loader!./footer/footer.html').default %>
+  <%= require('html-loader!./common/footer/footer.html').default %>
 </body>
 
 </html>

@@ -1,0 +1,25 @@
+.carusel {
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 10rem;
+}
+
+.carusel_slider {
+	width: 64.28%;
+	padding-bottom: 5rem;
+}
+
+.carusel_slider div {
+	padding-right: 40px;
+	float: right;
+}
+
+.carusel>.slider>:last-child {
+	padding-right: 0px;
+}
+
+.carusel_img {
+	border-radius: 20px;
+	max-height: 640px;
+}
+
