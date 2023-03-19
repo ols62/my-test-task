@@ -23,3 +23,20 @@
 	max-height: 640px;
 }
 
+.carusel {
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 10rem;
+}
+
+@media screen and (max-width: 870px) {
+	.carusel {
+		position: relative;
+		overflow: hidden;
+		padding-bottom: 4rem;
+	}
+
+	.carusel_img {
+		border-radius: unset;
+	}
+}

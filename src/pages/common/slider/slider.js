@@ -2,7 +2,9 @@
   const actieColor = '#9E7D43';
   const passiveColor = '#FFFFFF';
   const sliders = [];
-  const mql = window.matchMedia('(max-width: 1080px)');
+  const mql = window.matchMedia('(max-width: 870px)');
+  const total =
+    document.getElementsByClassName('total_container')[0].lastElementChild;
 
   const controlsClass = (carusel) => {
     const sliderControls = {
@@ -89,23 +91,40 @@
     }
   };
 
+  const moveSlider = (element, slider, direction) => {
+    element.lastElementChild.children.item(
+      slider.current
+    ).style.backgroundColor = passiveColor;
+    showText(slider, 0);
+    if (direction === 'right') {
+      if (slider.current < slider.count - 1) {
+        slider.current++;
+      } else {
+        slider.current = 0;
+      }
+    } else if (direction === 'left') {
+      if (slider.current > 0) {
+        slider.current--;
+      } else {
+        slider.current = slider.count - 1;
+      }
+    }
+    element.lastElementChild.children.item(
+      slider.current
+    ).style.backgroundColor = actieColor;
+    moveSlide(slider);
+    showText(slider, 1);
+    if (slider.text) {
+      total.dispatchEvent(
+        new Event('sumChange', { bubbles: true, composed: true })
+      );
+    }
+  };
+
   const pressButtonNext = function () {
     for (let slider of sliders) {
       if (this.parentElement === slider.container) {
-        this.parentElement.lastElementChild.children.item(
-          slider.current
-        ).style.backgroundColor = passiveColor;
-        showText(slider, 0);
-        if (slider.current < slider.count - 1) {
-          slider.current++;
-        } else {
-          slider.current = 0;
-        }
-        this.parentElement.lastElementChild.children.item(
-          slider.current
-        ).style.backgroundColor = actieColor;
-        moveSlide(slider);
-        showText(slider, 1);
+        moveSlider(this.parentElement, slider, 'right');
         break;
       }
     }
@@ -114,20 +133,32 @@
   const pressButtonPrev = function () {
     for (let slider of sliders) {
       if (this.parentElement === slider.container) {
-        this.parentElement.lastElementChild.children.item(
-          slider.current
-        ).style.backgroundColor = passiveColor;
-        showText(slider, 0);
-        if (slider.current > 0) {
-          slider.current--;
-        } else {
-          slider.current = slider.count - 1;
+        moveSlider(this.parentElement, slider, 'left');
+        break;
+      }
+    }
+  };
+
+  const touchSliderStart = function (event) {
+    for (let slider of sliders) {
+      if (this === slider.container) {
+        slider.touchStart = event.touches[0].clientX;
+        break;
+      }
+    }
+  };
+
+  const touchSliderEnd = function (event) {
+    for (let slider of sliders) {
+      if (this === slider.container) {
+        let deltaX = slider.touchStart - event.changedTouches[0].clientX;
+        if (Math.abs(deltaX) > 30) {
+          if (deltaX < 0) {
+            moveSlider(this, slider, 'left');
+          } else {
+            moveSlider(this, slider, 'right');
+          }
         }
-        this.parentElement.lastElementChild.children.item(
-          slider.current
-        ).style.backgroundColor = actieColor;
-        moveSlide(slider);
-        showText(slider, 1);
         break;
       }
     }
@@ -142,6 +173,7 @@
       current: 0,
       text: slider.getElementsByClassName('slider_text').length,
       offset: 0,
+      touchStart: 0,
     };
     let persent = 100;
     element.imgCount = element.count;
@@ -172,6 +204,8 @@
       slider.querySelectorAll('.slider_text')[0].style.opacity = 1;
       slider.querySelectorAll('.slider_text')[0].style.visibility = 'visible';
     }
+    slider.addEventListener('touchstart', touchSliderStart);
+    slider.addEventListener('touchend', touchSliderEnd);
     return element;
   };
 
@@ -210,13 +244,13 @@
       slider.container.style.visibility = 'hidden';
       if (slider.carusel) {
         if (e.matches) {
+          let width = 100 * slider.imgCount;
           slider.container.firstElementChild.classList.remove('carusel_slider');
-          slider.container.firstElementChild.style.width =
-            100 * slider.imgCount + '%';
+          slider.container.firstElementChild.style.width = `${width}%`;
+          slider.offset = 100 / slider.imgCount;
           slider.container.firstElementChild.style.transform =
-            'translateX(-20%)';
-          slider.offset = 20;
-          toggleControls(slider,controlsClass(true),controlsClass(false));
+            'translateX(-' + slider.offset + '%)';
+          toggleControls(slider, controlsClass(true), controlsClass(false));
         } else {
           slider.container.firstElementChild.classList.add('carusel_slider');
           slider.container.firstElementChild.style.width =
@@ -224,7 +258,7 @@
           slider.offset = getOffset(slider);
           slider.container.firstElementChild.style.transform =
             'translateX(-' + slider.offset + '%)';
-            toggleControls(slider,controlsClass(false),controlsClass(true));
+          toggleControls(slider, controlsClass(false), controlsClass(true));
         }
         moveSlide(slider);
       }

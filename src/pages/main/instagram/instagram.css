@@ -1,5 +1,5 @@
 .instagram {
-  padding-top: 9.1rem;
+  padding-top: 8.0rem;
 }
 
 .instagram__header {
@@ -14,12 +14,12 @@
 .instagram__title {
   font-family: TT Wellingtons;
   font-size: 4.8rem;
+  font-size: clamp(3.2rem, 2.85vw, 4.8rem);
   font-weight: 400;
   line-height: 4.8rem;
   letter-spacing: 0rem;
   text-align: left;
   color: #30261D;
-
 }
 
 .instagram__link {
@@ -27,6 +27,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 2.4rem;
+  font-size: clamp(1.4rem, 1.42vw, 2.4rem);
   line-height: 2.4rem;
   color: #9E7D43;
 }
@@ -51,19 +52,32 @@
 
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 870px) {
   .instagram {
-    padding: 9.1rem 3.0rem 0rem 3.0rem;
+    padding: 3.0rem 3.0rem 0rem 3.0rem;
   }
 
   .instagram__gallery {
+    padding-bottom: 40px;
     grid-template-columns: 1fr 1fr;
     gap: calc(clamp(0.5rem, 2.38vw, 4.0rem));
+    
   }
 
   .instagram__gallery>:nth-child(1),
   .instagram__gallery>:nth-child(3) {
     justify-self: end;
+    align-content: flex-end;
+   }
+
+  .instagram__header {
+    padding: 0rem 0rem 2.0rem 0rem;
+    align-items: flex-start;
   }
 
+  .instagram__title {
+    line-height: 3.2rem;
+  }
+ 
 }
+

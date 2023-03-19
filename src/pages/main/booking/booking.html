@@ -1,13 +1,8 @@
 <section class="booking section-wrapper">
   <div class=" content-wrapper booking_wrapper">
     <div>
-      <h2 class="booking_form__title">Book a sauna
-        <span>
-          <object type="image/svg+xml" data="../../../images/icons/list.svg">Your browser
-            does not
-            support SVG</object>
-        </span>
-      </h2>
+      <h2 class="booking_form__title">Book a sauna</h2>
+      <span class="title_img"></span>
       <p class="booking_form__text">Choose the place where you will deliver the sauna, dates and additional options
       </p>
     </div>
@@ -25,7 +20,7 @@
           </div>
         </div>
         <div class="slider_text booking_img_text">
-          <p>Finnish <br>mobile sauna
+          <p>Finnish <br>mobile sauna 
           </p>
           <p><span>2 hours</span><br>
             $198
@@ -56,78 +51,78 @@
     </div>
 
     <div class="booking_form">
-        <label class="booking_form__label">Sauna type:</label>
+      <label class="booking_form__label">Sauna type:</label>
+      <select class="select-css select-css_arrow">
+        <option>Finnish mobile sauna</option>
+        <option>Finnish mobile sauna one</option>
+        <option>Finnish mobile sauna two</option>
+        <option>Finnish mobile sauna three</option>
+      </select>
+      <label class="booking_form__label" for="datein">Choose dates:</label>
+      <div class="datetime_container">
+        <input class="booking__datetime" type="text" name="checkin" placeholder="Check in"
+          onfocus="this.type='datetime-local'" onblur="this.type='text'">
+        <input class="booking__datetime" type="text" name="checkout" placeholder="Check out"
+          onfocus="this.type='datetime-local'" onblur="this.type='text'">
+      </div>
+      <div class="rental_container">
+        <label class="booking_form__label">Rental type:</label>
+        <label class="booking_form__label">For how many hours?</label>
         <select class="select-css select-css_arrow">
-          <option>Finnish mobile sauna</option>
-          <option>Finnish mobile sauna</option>
-          <option>Finnish mobile sauna</option>
-          <option>Finnish mobile sauna</option>
+          <option>Hourly</option>
+          <option>Daily</option>
+          <option>weekly</option>
+          <option>monthly</option>
         </select>
-        <label class="booking_form__label" for="datein">Choose dates:</label>
-        <div class="datetime_container">
-          <input class="booking__datetime" type="text" name="checkin" placeholder="Check in"
-            onfocus="this.type='datetime-local'" onblur="this.type='text'">
-          <input class="booking__datetime" type="text" name="checkout" placeholder="Check out"
-            onfocus="this.type='datetime-local'" onblur="this.type='text'">
-        </div>
-        <div class="rental_container">
-          <label class="booking_form__label">Rental type:</label>
-          <label class="booking_form__label">For how many hours?</label>
-          <select class="select-css select-css_arrow">
-            <option>Hourly</option>
-            <option>Daily</option>
-            <option>weekly</option>
-            <option>monthly</option>
-          </select>
-          <select class="select-css select-css_arrow">
-            <option>2 hours</option>
-            <option>4 hours</option>
-            <option>6 hours</option>
-            <option>8 hours</option>
-            <option>10 hours</option>
-          </select>
-        </div>
-        <label class="booking_form__label">Where to deliver?</label>
-        <select class="select-css select-css_location">
-          <option hidden>Select delivery location</option>
-          <option>City 1</option>
-          <option>City 2</option>
-          <option>City 3</option>
-          <option>City 4</option>
+        <select class="select-css select-css_arrow">
+          <option>2 hours</option>
+          <option>4 hours</option>
+          <option>6 hours</option>
+          <option>8 hours</option>
+          <option>10 hours</option>
         </select>
-        <label class="booking_form__label">Options</label>
-        <div class="option_container">
-          <label class="checkbox-css">Bathrobes,&nbsp;&nbsp;bath accessories
-            <span>| 200$</span>
-            <input type="checkbox">
-            <span class="checkbox-css_checkmark"></span>
-          </label>
-          <label class="checkbox-css">Massage
-            <span>| 200$</span>
-            <input type="checkbox">
-            <span class="checkbox-css_checkmark"></span>
-          </label>
-          <label class="checkbox-css">Catering
-            <span>| 100$</span>
-            <input type="checkbox">
-            <span class="checkbox-css_checkmark"></span>
-          </label>
-          <label class="checkbox-css">Aromatherapy
-            <span>| 50$</span>
-            <input type="checkbox">
-            <span class="checkbox-css_checkmark"></span>
-          </label>
-          <label class="checkbox-css">Attendant
-            <span>| 99$</span>
-            <input type="checkbox">
-            <span class="checkbox-css_checkmark"></span>
-          </label>
-        </div>
-        <div class="total_container">
-          <label class="booking_form__label" for="datein">Total</label>
-          <label class="booking_form__label" for="datein">$398</label>
-        </div>
-        <button class="button-primary booking__button">BOOK A SAUNA</button>
+      </div>
+      <label class="booking_form__label">Where to deliver?</label>
+      <select class="select-css select-css_location">
+        <option hidden>Select delivery location</option>
+        <option>City 1</option>
+        <option>City 2</option>
+        <option>City 3</option>
+        <option>City 4</option>
+      </select>
+      <label class="booking_form__label">Options</label>
+      <div class="option_container">
+        <label class="checkbox-css">Bathrobes,&nbsp;&nbsp;bath accessories
+          <span>| 200$</span>
+          <input type="checkbox" checked>
+          <span class="checkbox-css_checkmark"></span>
+        </label>
+        <label class="checkbox-css">Massage
+          <span>| 200$</span>
+          <input type="checkbox">
+          <span class="checkbox-css_checkmark"></span>
+        </label>
+        <label class="checkbox-css">Catering
+          <span>| 100$</span>
+          <input type="checkbox">
+          <span class="checkbox-css_checkmark"></span>
+        </label>
+        <label class="checkbox-css">Aromatherapy
+          <span>| 50$</span>
+          <input type="checkbox">
+          <span class="checkbox-css_checkmark"></span>
+        </label>
+        <label class="checkbox-css">Attendant
+          <span>| 99$</span>
+          <input type="checkbox">
+          <span class="checkbox-css_checkmark"></span>
+        </label>
+      </div>
+      <div class="total_container">
+        <label class="booking_form__label" for="datein">Total</label>
+        <label class="booking_form__label" for="datein">$398</label>
+      </div>
+      <button class="button-primary booking__button">BOOK A SAUNA</button>
     </div>
 
   </div>

@@ -21,8 +21,6 @@
 
 .booking_wrapper>:nth-child(2) {
     grid-area: 1 / 2 / 5 / 3;
-    overflow: hidden;
-    border-radius: 12px;
 }
 
 .booking_wrapper>:nth-child(3) {
@@ -50,34 +48,57 @@
 }
 
 .booking_form__title {
+    display: inline-block;
+    vertical-align: top;
     font-family: 'TT Wellingtons';
     font-weight: 400;
-    font-size: 4.8rem;
+    font-size: clamp(3.2rem, 2.85vw, 4.8rem);
     line-height: 100%;
     color: #30261D;
     margin-bottom: 2.0rem;
 }
 
+.title_img {
+    display: inline-block;
+    background-image: url('../../../images/icons/list.svg');
+    background-repeat: no-repeat;
+    margin-left: 12px;
+    background-size: 29px 39px;
+    width: 29px;
+    height: 39px;
+}
+
 .booking_form__text {
     font-family: Inter;
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 1.07vw, 1.8rem);
     font-weight: 400;
-    line-height: 2.9rem;
+    line-height: 160%;
     letter-spacing: 0rem;
     text-align: left;
     max-width: 47.6rem;
 }
 
+.booking_form__label {
+    display: block;
+    font-size: clamp(1.4rem, 1.19vw, 2.0rem);
+    font-weight: 700;
+    line-height: 120%;
+    text-align: left;
+    margin-top: 3.0rem;
+    margin-bottom: 1.0rem;
+}
+
 .select-css {
+    cursor: pointer;
     display: inline-block;
     width: 100%;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 1.07vw, 1.8rem);
     line-height: 3.2rem;
     color: #444;
-    padding: 1.3rem 2.0rem 1.3rem 2.0rem;
+    padding: 1.3rem 2.3rem 1.3rem 2.0rem;
     background: #FFFFFF;
     border: 1px solid #E0DEDB;
     box-shadow: 0px 4px 20px rgba(22, 26, 32, 0.06);
@@ -109,8 +130,8 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.8rem;
-    line-height: 3.2rem;
+    font-size: clamp(1.4rem, 1.07vw, 1.8rem);
+    line-height:3.2rem;
     color: #444;
     padding: 1.3rem 1.6rem 1.3rem 2.0rem;
     background: #FFFFFF;
@@ -128,25 +149,14 @@
     opacity: 0;
 }
 
-.booking_form__label {
-    display: block;
-    font-size: 2.0rem;
-    font-weight: 700;
-    line-height: 120%;
-    text-align: left;
-    margin-top: 3.0rem;
-    margin-bottom: 1.0rem;
-}
-
 .option_container {
     display: inline-block;
-    padding-bottom: 1.9rem;
+    padding-bottom: 2.3rem;
     border-bottom: 1px solid #E0DEDB;
-    ;
 }
 
 .option_container label {
-    margin: 0rem 1.0rem 1.0rem 0rem;
+    margin: 0rem 0.8rem 1.0rem 0rem;
 }
 
 .total_container {
@@ -165,10 +175,8 @@
 }
 
 .booking_img {
-    /*max-width: 620;*/
     min-width: 320px;
 }
-
 
 .booking_slider {
     border-radius: 12px;
@@ -176,15 +184,15 @@
 
 .booking_img_text {
     top: 0;
-    width: 100%;
     left: 0;
-    height: 100%;
+    width: 100%;
+    height: 99.55%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 52.58%, rgba(0, 0, 0, 0.378) 64.81%, rgba(0, 0, 0, 0.63) 76.7%, rgba(0, 0, 0, 0.7) 100%);
     color: #FFFFFF;
     font-family: TT Wellingtons;
-    font-size: 46px;
+    font-size: clamp(2.4rem, 2.85vw, 4.6rem);
     font-weight: 400;
-    line-height: 46px;
+    line-height: 100%;
     letter-spacing: 0em;
     text-align: left;
     display: flex;
@@ -194,24 +202,22 @@
 }
 
 .booking_img_text :first-child {
-    width: 55%;
+    width: 60%;
     text-align: left;
+    vertical-align: top;
 }
 
 .booking_img_text :last-child {
     width: 25%;
-    text-align: right;
-}
-
-.booking_img_text :last-child {
-    width: 25%;
+    font-size: clamp(2.8rem, 2.85vw, 4.8rem);
     text-align: right;
 }
 
 .booking_img_text span {
+    vertical-align: bottom;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 2.0rem;
+    line-height: 3.2rem;
 }
 
 .booking__button {
@@ -235,7 +241,7 @@
     border: 1px solid #E0DEDB;
     box-shadow: 0px 4px 20px rgba(22, 26, 32, 0.06);
     border-radius: 12px;
-    margin-top: 3.0rem;
+    margin-top: 2.7rem;
 }
 
 .booking_accessories__text {
@@ -255,12 +261,42 @@
     height: auto;
     margin: 0.5rem 1.0rem 0.5rem 0rem;
 }
+@media screen and (max-width: 1160px) {
 
-@media screen and (max-width: 1080px) {
+    .select-css_location {
+        background-image: url('../../../images/icons/place.svg');
+        background-position: right 1.7rem center, 0 0;
+        background-size: 10px 16px;
+    }
+
+    .select-css {
+        padding: 0.8rem 1.8rem 0.8rem 1.5rem;
+    }
+
+    .select-css_arrow {
+        background-position: right 1.8rem center, 0 0;
+    }
+
+    .booking__datetime {
+        padding: 0.8rem 1.8rem 0.8rem 1.5rem;
+        background-position: right 1.8rem center, 0 0;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .booking {
+        padding: 0;
+    }
 
     .booking_wrapper {
         display: grid;
         grid-template-columns: 100%;
+        border-radius: unset;
+        padding: 0rem;
+    }
+
+    .booking_wrapper>:nth-child(1) {
+        padding: 4.0rem 3.0rem 2.0rem 3.0rem;
     }
 
     .booking_wrapper>:nth-child(2) {
@@ -269,7 +305,72 @@
 
     .booking_wrapper>:nth-child(3) {
         grid-area: 3/1 /11 /2;
-        /*border: 1px solid green;*/
+        padding: 0rem 3.0rem 3.0rem 3.0rem;
     }
+
+    .booking_slider {
+        border-radius: unset;
+    }
+
+    .booking_form__title {
+        margin-bottom: 1.5rem;
+        vertical-align: top;
+    }
+
+    .title_img {
+        margin-top: 3px;
+        margin-left: 4px;
+        background-size: 19px 26px;
+        width: 19px;
+        height: 26px;
+    }
+
+    .booking_img_text {
+        padding: 3.0rem 3.0rem;
+    }
+
+    .booking_img_text:first-child p {
+        font-size: 1.2rem;
+    }
+
+    .booking_img_text span {
+        font-size: 1.2rem;
+    }
+
+    .booking_accessories {
+        display: none;
+    }
+
+    .booking_form__label {
+        text-align: left;
+        margin-top: 2.0rem;
+        margin-bottom: 0.8rem;
+    }
+
+
+    .rental_container {
+        display: grid;
+        grid-template-columns: 32% 64%;
+        column-gap: 4.0%;
+    }
+
+    .option_container label {
+        margin: 0rem 0.5rem 0.5rem 0rem;
+    }
+
+    .option_container :last-child {
+        margin-right:  0rem;
+    }
+
+    .option_container {
+        padding-bottom: 1.4rem;
+    }
+
+    .booking__button {
+        margin-top: 0rem;
+        font-size: 1.6rem;
+        padding: 2.0rem 3rem 1.6rem 3rem;
+    }
+
 
 }

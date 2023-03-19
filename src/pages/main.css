@@ -80,6 +80,14 @@ li {
 
 @media screen and (max-width: 1080px) {
     :root {
+        --content-width: 95%;
+    }
+}
+
+
+@media screen and (max-width: 870px) {
+    :root {
         --content-width: 100%;
     }
+
 }

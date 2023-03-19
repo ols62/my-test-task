@@ -28,7 +28,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   var actieColor = '#9E7D43';
   var passiveColor = '#FFFFFF';
   var sliders = [];
-  var mql = window.matchMedia('(max-width: 1080px)');
+  var mql = window.matchMedia('(max-width: 870px)');
+  var total = document.getElementsByClassName('total_container')[0].lastElementChild;
   var controlsClass = function controlsClass(carusel) {
     var sliderControls = {
       bntprev: 'prev',
@@ -91,20 +92,37 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
     }
   };
+  var moveSlider = function moveSlider(element, slider, direction) {
+    element.lastElementChild.children.item(slider.current).style.backgroundColor = passiveColor;
+    showText(slider, 0);
+    if (direction === 'right') {
+      if (slider.current < slider.count - 1) {
+        slider.current++;
+      } else {
+        slider.current = 0;
+      }
+    } else if (direction === 'left') {
+      if (slider.current > 0) {
+        slider.current--;
+      } else {
+        slider.current = slider.count - 1;
+      }
+    }
+    element.lastElementChild.children.item(slider.current).style.backgroundColor = actieColor;
+    moveSlide(slider);
+    showText(slider, 1);
+    if (slider.text) {
+      total.dispatchEvent(new Event('sumChange', {
+        bubbles: true,
+        composed: true
+      }));
+    }
+  };
   var pressButtonNext = function pressButtonNext() {
     for (var _i = 0, _sliders = sliders; _i < _sliders.length; _i++) {
       var slider = _sliders[_i];
       if (this.parentElement === slider.container) {
-        this.parentElement.lastElementChild.children.item(slider.current).style.backgroundColor = passiveColor;
-        showText(slider, 0);
-        if (slider.current < slider.count - 1) {
-          slider.current++;
-        } else {
-          slider.current = 0;
-        }
-        this.parentElement.lastElementChild.children.item(slider.current).style.backgroundColor = actieColor;
-        moveSlide(slider);
-        showText(slider, 1);
+        moveSlider(this.parentElement, slider, 'right');
         break;
       }
     }
@@ -113,16 +131,32 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     for (var _i2 = 0, _sliders2 = sliders; _i2 < _sliders2.length; _i2++) {
       var slider = _sliders2[_i2];
       if (this.parentElement === slider.container) {
-        this.parentElement.lastElementChild.children.item(slider.current).style.backgroundColor = passiveColor;
-        showText(slider, 0);
-        if (slider.current > 0) {
-          slider.current--;
-        } else {
-          slider.current = slider.count - 1;
+        moveSlider(this.parentElement, slider, 'left');
+        break;
+      }
+    }
+  };
+  var touchSliderStart = function touchSliderStart(event) {
+    for (var _i3 = 0, _sliders3 = sliders; _i3 < _sliders3.length; _i3++) {
+      var slider = _sliders3[_i3];
+      if (this === slider.container) {
+        slider.touchStart = event.touches[0].clientX;
+        break;
+      }
+    }
+  };
+  var touchSliderEnd = function touchSliderEnd(event) {
+    for (var _i4 = 0, _sliders4 = sliders; _i4 < _sliders4.length; _i4++) {
+      var slider = _sliders4[_i4];
+      if (this === slider.container) {
+        var deltaX = slider.touchStart - event.changedTouches[0].clientX;
+        if (Math.abs(deltaX) > 30) {
+          if (deltaX < 0) {
+            moveSlider(this, slider, 'left');
+          } else {
+            moveSlider(this, slider, 'right');
+          }
         }
-        this.parentElement.lastElementChild.children.item(slider.current).style.backgroundColor = actieColor;
-        moveSlide(slider);
-        showText(slider, 1);
         break;
       }
     }
@@ -135,7 +169,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       imgCount: 0,
       current: 0,
       text: slider.getElementsByClassName('slider_text').length,
-      offset: 0
+      offset: 0,
+      touchStart: 0
     };
     var persent = 100;
     element.imgCount = element.count;
@@ -160,6 +195,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       slider.querySelectorAll('.slider_text')[0].style.opacity = 1;
       slider.querySelectorAll('.slider_text')[0].style.visibility = 'visible';
     }
+    slider.addEventListener('touchstart', touchSliderStart);
+    slider.addEventListener('touchend', touchSliderEnd);
     return element;
   };
   var toggleControls = function toggleControls(slider, removelClass, addClass) {
@@ -202,14 +239,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   }
   var changeSlider = function changeSlider(e) {
     var _loop = function _loop() {
-      var slider = _sliders3[_i3];
+      var slider = _sliders5[_i5];
       slider.container.style.visibility = 'hidden';
       if (slider.carusel) {
         if (e.matches) {
+          var width = 100 * slider.imgCount;
           slider.container.firstElementChild.classList.remove('carusel_slider');
-          slider.container.firstElementChild.style.width = 100 * slider.imgCount + '%';
-          slider.container.firstElementChild.style.transform = 'translateX(-20%)';
-          slider.offset = 20;
+          slider.container.firstElementChild.style.width = "".concat(width, "%");
+          slider.offset = 100 / slider.imgCount;
+          slider.container.firstElementChild.style.transform = 'translateX(-' + slider.offset + '%)';
           toggleControls(slider, controlsClass(true), controlsClass(false));
         } else {
           slider.container.firstElementChild.classList.add('carusel_slider');
@@ -224,7 +262,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         slider.container.style.visibility = 'visible';
       }, 350);
     };
-    for (var _i3 = 0, _sliders3 = sliders; _i3 < _sliders3.length; _i3++) {
+    for (var _i5 = 0, _sliders5 = sliders; _i5 < _sliders5.length; _i5++) {
       _loop();
     }
   };
@@ -234,22 +272,40 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /***/ }),
 
+/***/ 9:
+/***/ (() => {
+
+(function () {
+  var total = document.getElementsByClassName('total_container')[0].lastElementChild;
+  var updateTotal = function updateTotal() {
+    /*alert('updateTotal');*/
+  };
+  total.addEventListener('sumChange', updateTotal);
+})();
+
+/***/ }),
+
 /***/ 892:
 /***/ (() => {
 
 (function () {
   var checkbox = document.getElementsByClassName('checkbox-css');
+  var change = function change(e) {
+    if (e.target.checked) {
+      this.parentElement.style.background = '#9E7D43';
+      this.parentElement.style.color = '#FFFFFF';
+    } else {
+      this.parentElement.style.color = '#30261D';
+      this.parentElement.style.background = '#F6F5F3';
+    }
+  };
   for (var i = 0; i < checkbox.length; i++) {
     var element = checkbox[i].getElementsByTagName('input');
-    element[0].addEventListener('change', function (event) {
-      if (event.target.checked) {
-        this.parentElement.style.background = '#9E7D43';
-        this.parentElement.style.color = '#FFFFFF';
-      } else {
-        this.parentElement.style.color = '#30261D';
-        this.parentElement.style.background = '#F6F5F3';
-      }
-    });
+    element[0].addEventListener('change', change);
+    if (element[0].checked) {
+      element[0].parentElement.style.background = '#9E7D43';
+      element[0].parentElement.style.color = '#FFFFFF';
+    }
   }
 })();
 
@@ -354,6 +410,9 @@ var __webpack_exports__ = {};
 /* harmony import */ var _pages_main_questions_questions__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_main_questions_questions__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_common_header_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(395);
 /* harmony import */ var _pages_common_header_header__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_common_header_header__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_main_booking_booking__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
+/* harmony import */ var _pages_main_booking_booking__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_main_booking_booking__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
