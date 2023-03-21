@@ -54,16 +54,25 @@
         element.container.firstElementChild.lastElementChild.innerHTML;
       element.container.firstElementChild.append(div);
     }
+    element.container.lastChild.style.left = `calc(50% - ${
+      element.container.lastChild.offsetWidth / 2
+    }px)`;
   };
 
   const getOffset = (slider) => {
+    let padding = getComputedStyle(
+      slider.container.children.item(0).firstElementChild
+    )['padding-right'];
+    let index = padding.lastIndexOf('px')
+      ? padding.lastIndexOf('px')
+      : padding.lastIndexOf('rem');
+    padding = index ? padding.substr(0, index) : 0;
     let viewWidth = slider.container.offsetWidth;
-    let wrapWidth = viewWidth * slider.carusel * slider.imgCount;
     let imgWidth = viewWidth * slider.carusel;
-    let offset = Math.round(
-      ((imgWidth - (viewWidth - imgWidth) / 2) / wrapWidth) * 100
-    );
-    return offset;
+    let wrapWidth =
+      imgWidth * slider.imgCount + padding * (slider.imgCount - 1);
+    let offset = ((imgWidth - (viewWidth - imgWidth) / 2) / wrapWidth) * 100;
+    return Math.round(offset * 100) / 100;
   };
 
   const moveSlide = (slider) => {
@@ -91,6 +100,16 @@
     }
   };
 
+  const sendEvent = (sum) => {
+    total.dispatchEvent(
+      new CustomEvent('sumChange', {
+        bubbles: true,
+        composed: true,
+        detail: { sum: sum, source: 'slider' },
+      })
+    );
+  };
+
   const moveSlider = (element, slider, direction) => {
     element.lastElementChild.children.item(
       slider.current
@@ -114,10 +133,11 @@
     ).style.backgroundColor = actieColor;
     moveSlide(slider);
     showText(slider, 1);
+    let sum = slider.container
+      .getElementsByClassName('slider_sum')
+      [slider.current].innerText.substring(1);
     if (slider.text) {
-      total.dispatchEvent(
-        new Event('sumChange', { bubbles: true, composed: true })
-      );
+      sendEvent(sum);
     }
   };
 
@@ -232,12 +252,11 @@
     for (let marker of elements.item(elements.length - 1).children) {
       marker.classList.remove(removelClass.marker);
       marker.classList.add(addClass.marker);
+      slider.container.lastChild.style.left = `calc(50% - ${
+        slider.container.lastChild.offsetWidth / 2
+      }px)`;
     }
   };
-
-  for (let slider of document.getElementsByClassName('slider')) {
-    sliders.push(initWrapper(slider));
-  }
 
   const changeSlider = (e) => {
     for (let slider of sliders) {
@@ -268,6 +287,11 @@
     }
   };
 
-  changeSlider(mql);
+  for (let slider of document.getElementsByClassName('slider')) {
+    sliders.push(initWrapper(slider));
+  }
+
   mql.addEventListener('change', changeSlider);
+  changeSlider(mql);
+
 })();

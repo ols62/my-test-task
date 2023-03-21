@@ -38,7 +38,6 @@
 .marker_container {
 	position: absolute;
 	bottom: 5%;
-	left: calc(50% - 17px);
 	display: flex;
 	justify-content: space-between;
 }
@@ -49,6 +48,10 @@
 	height: 5px;
 	border-radius: 5px;
 	background-color: #FFFFFF;
+}
+
+.marker_container :last-child {
+	margin-right: 0px;
 }
 
 .prev,
@@ -91,8 +94,7 @@
 
 .carusel_marker_container {
 	position: absolute;
-	bottom: 4px;
-	left: calc(50% - 18px);
+	bottom: 0px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -103,6 +105,10 @@
 	height: 10px;
 	border-radius: 5px;
 	background-color: #FFFFFF;
+}
+
+.carusel_marker_container :last-child {
+	margin-right: 0px;
 }
 
 .carusel_prev,
@@ -162,4 +168,9 @@
 		object-fit: cover;
 		object-position: center;
 	}
+
+	.marker_container {
+		bottom: 3%;
+	}
+
 }
