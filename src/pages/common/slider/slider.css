@@ -149,7 +149,7 @@
 	border-width: 0.5rem 0.5rem 0rem 0rem !important;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 400px) {
 
 	.slider {
 		display: block;

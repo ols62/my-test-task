@@ -189,7 +189,7 @@
 
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 400px) {
 
   .header {
     background: linear-gradient(180deg, #000000 0%, #28320E 33%, rgba(37, 51, 6, 0) 64.87%),
