@@ -28,7 +28,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   var actieColor = '#9E7D43';
   var passiveColor = '#FFFFFF';
   var sliders = [];
-  var mql = window.matchMedia('(max-width: 1080px)');
+  var mql = window.matchMedia('(max-width: 870px)');
+  var total = document.getElementsByClassName('total_container')[0].lastElementChild;
   var controlsClass = function controlsClass(carusel) {
     var sliderControls = {
       bntprev: 'prev',
@@ -68,13 +69,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       div.innerHTML = element.container.firstElementChild.lastElementChild.innerHTML;
       element.container.firstElementChild.append(div);
     }
+    element.container.lastChild.style.left = "calc(50% - ".concat(element.container.lastChild.offsetWidth / 2, "px)");
   };
   var getOffset = function getOffset(slider) {
+    var padding = getComputedStyle(slider.container.children.item(0).firstElementChild)['padding-right'];
+    var index = padding.lastIndexOf('px') ? padding.lastIndexOf('px') : padding.lastIndexOf('rem');
+    padding = index ? padding.substr(0, index) : 0;
     var viewWidth = slider.container.offsetWidth;
-    var wrapWidth = viewWidth * slider.carusel * slider.imgCount;
     var imgWidth = viewWidth * slider.carusel;
-    var offset = Math.round((imgWidth - (viewWidth - imgWidth) / 2) / wrapWidth * 100);
-    return offset;
+    var wrapWidth = imgWidth * slider.imgCount + padding * (slider.imgCount - 1);
+    var offset = (imgWidth - (viewWidth - imgWidth) / 2) / wrapWidth * 100;
+    return Math.round(offset * 100) / 100;
   };
   var moveSlide = function moveSlide(slider) {
     var percent = -100 / slider.imgCount * slider.current - slider.offset;
@@ -91,20 +96,45 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
     }
   };
+  var sendEvent = function sendEvent(sum) {
+    total.dispatchEvent(new CustomEvent('sumChange', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        sum: sum,
+        source: 'slider'
+      }
+    }));
+  };
+  var moveSlider = function moveSlider(element, slider, direction) {
+    element.lastElementChild.children.item(slider.current).style.backgroundColor = passiveColor;
+    showText(slider, 0);
+    if (direction === 'right') {
+      if (slider.current < slider.count - 1) {
+        slider.current++;
+      } else {
+        slider.current = 0;
+      }
+    } else if (direction === 'left') {
+      if (slider.current > 0) {
+        slider.current--;
+      } else {
+        slider.current = slider.count - 1;
+      }
+    }
+    element.lastElementChild.children.item(slider.current).style.backgroundColor = actieColor;
+    moveSlide(slider);
+    showText(slider, 1);
+    var sum = slider.container.getElementsByClassName('slider_sum')[slider.current].innerText.substring(1);
+    if (slider.text) {
+      sendEvent(sum);
+    }
+  };
   var pressButtonNext = function pressButtonNext() {
     for (var _i = 0, _sliders = sliders; _i < _sliders.length; _i++) {
       var slider = _sliders[_i];
       if (this.parentElement === slider.container) {
-        this.parentElement.lastElementChild.children.item(slider.current).style.backgroundColor = passiveColor;
-        showText(slider, 0);
-        if (slider.current < slider.count - 1) {
-          slider.current++;
-        } else {
-          slider.current = 0;
-        }
-        this.parentElement.lastElementChild.children.item(slider.current).style.backgroundColor = actieColor;
-        moveSlide(slider);
-        showText(slider, 1);
+        moveSlider(this.parentElement, slider, 'right');
         break;
       }
     }
@@ -113,16 +143,32 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     for (var _i2 = 0, _sliders2 = sliders; _i2 < _sliders2.length; _i2++) {
       var slider = _sliders2[_i2];
       if (this.parentElement === slider.container) {
-        this.parentElement.lastElementChild.children.item(slider.current).style.backgroundColor = passiveColor;
-        showText(slider, 0);
-        if (slider.current > 0) {
-          slider.current--;
-        } else {
-          slider.current = slider.count - 1;
+        moveSlider(this.parentElement, slider, 'left');
+        break;
+      }
+    }
+  };
+  var touchSliderStart = function touchSliderStart(event) {
+    for (var _i3 = 0, _sliders3 = sliders; _i3 < _sliders3.length; _i3++) {
+      var slider = _sliders3[_i3];
+      if (this === slider.container) {
+        slider.touchStart = event.touches[0].clientX;
+        break;
+      }
+    }
+  };
+  var touchSliderEnd = function touchSliderEnd(event) {
+    for (var _i4 = 0, _sliders4 = sliders; _i4 < _sliders4.length; _i4++) {
+      var slider = _sliders4[_i4];
+      if (this === slider.container) {
+        var deltaX = slider.touchStart - event.changedTouches[0].clientX;
+        if (Math.abs(deltaX) > 30) {
+          if (deltaX < 0) {
+            moveSlider(this, slider, 'left');
+          } else {
+            moveSlider(this, slider, 'right');
+          }
         }
-        this.parentElement.lastElementChild.children.item(slider.current).style.backgroundColor = actieColor;
-        moveSlide(slider);
-        showText(slider, 1);
         break;
       }
     }
@@ -135,7 +181,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       imgCount: 0,
       current: 0,
       text: slider.getElementsByClassName('slider_text').length,
-      offset: 0
+      offset: 0,
+      touchStart: 0
     };
     var persent = 100;
     element.imgCount = element.count;
@@ -160,6 +207,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       slider.querySelectorAll('.slider_text')[0].style.opacity = 1;
       slider.querySelectorAll('.slider_text')[0].style.visibility = 'visible';
     }
+    slider.addEventListener('touchstart', touchSliderStart);
+    slider.addEventListener('touchend', touchSliderEnd);
     return element;
   };
   var toggleControls = function toggleControls(slider, removelClass, addClass) {
@@ -181,6 +230,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         var marker = _step.value;
         marker.classList.remove(removelClass.marker);
         marker.classList.add(addClass.marker);
+        slider.container.lastChild.style.left = "calc(50% - ".concat(slider.container.lastChild.offsetWidth / 2, "px)");
       }
     } catch (err) {
       _iterator.e(err);
@@ -188,28 +238,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       _iterator.f();
     }
   };
-  var _iterator2 = _createForOfIteratorHelper(document.getElementsByClassName('slider')),
-    _step2;
-  try {
-    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-      var slider = _step2.value;
-      sliders.push(initWrapper(slider));
-    }
-  } catch (err) {
-    _iterator2.e(err);
-  } finally {
-    _iterator2.f();
-  }
   var changeSlider = function changeSlider(e) {
     var _loop = function _loop() {
-      var slider = _sliders3[_i3];
+      var slider = _sliders5[_i5];
       slider.container.style.visibility = 'hidden';
       if (slider.carusel) {
         if (e.matches) {
+          var width = 100 * slider.imgCount;
           slider.container.firstElementChild.classList.remove('carusel_slider');
-          slider.container.firstElementChild.style.width = 100 * slider.imgCount + '%';
-          slider.container.firstElementChild.style.transform = 'translateX(-20%)';
-          slider.offset = 20;
+          slider.container.firstElementChild.style.width = "".concat(width, "%");
+          slider.offset = 100 / slider.imgCount;
+          slider.container.firstElementChild.style.transform = 'translateX(-' + slider.offset + '%)';
           toggleControls(slider, controlsClass(true), controlsClass(false));
         } else {
           slider.container.firstElementChild.classList.add('carusel_slider');
@@ -224,12 +263,70 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         slider.container.style.visibility = 'visible';
       }, 350);
     };
-    for (var _i3 = 0, _sliders3 = sliders; _i3 < _sliders3.length; _i3++) {
+    for (var _i5 = 0, _sliders5 = sliders; _i5 < _sliders5.length; _i5++) {
       _loop();
     }
   };
-  changeSlider(mql);
+  var _iterator2 = _createForOfIteratorHelper(document.getElementsByClassName('slider')),
+    _step2;
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var slider = _step2.value;
+      sliders.push(initWrapper(slider));
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
   mql.addEventListener('change', changeSlider);
+  changeSlider(mql);
+})();
+
+/***/ }),
+
+/***/ 9:
+/***/ (() => {
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+(function () {
+  var total = document.getElementsByClassName('total_container')[0].lastElementChild;
+  var option = document.getElementsByClassName('checkbox-css');
+  var initTotal = function initTotal() {
+    var element = document.getElementsByClassName('slider_sum');
+    var sum = element[0].innerText.substring(1);
+    total.innerHTML = "$".concat(sum);
+  };
+  var updateTotal = function updateTotal(e) {
+    if (e.detail.source === 'slider') {
+      this.innerHTML = "$".concat(e.detail.sum);
+      var accessories = document.getElementsByClassName('booking_accessories');
+      accessories[0].style.opacity = 0;
+      var _iterator = _createForOfIteratorHelper(document.getElementsByClassName('checkbox-css')),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var item = _step.value;
+          if (item.children[1].checked) {
+            item.children[1].checked = false;
+            item.style.background = '#F6F5F3';
+            item.style.color = '#30261D';
+          }
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    } else if (e.detail.source === 'checkbox') {
+      var totalsum = Number(total.innerHTML.substring(1));
+      this.innerHTML = "$".concat(Number(e.detail.sum) + totalsum);
+    }
+  };
+  total.addEventListener('sumChange', updateTotal);
+  initTotal();
 })();
 
 /***/ }),
@@ -237,19 +334,59 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 /***/ 892:
 /***/ (() => {
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 (function () {
   var checkbox = document.getElementsByClassName('checkbox-css');
-  for (var i = 0; i < checkbox.length; i++) {
-    var element = checkbox[i].getElementsByTagName('input');
-    element[0].addEventListener('change', function (event) {
-      if (event.target.checked) {
-        this.parentElement.style.background = '#9E7D43';
-        this.parentElement.style.color = '#FFFFFF';
-      } else {
-        this.parentElement.style.color = '#30261D';
-        this.parentElement.style.background = '#F6F5F3';
+  var total = document.getElementsByClassName('total_container')[0].lastElementChild;
+  var toggleAccessories = function toggleAccessories(show) {
+    var accessories = document.getElementsByClassName('booking_accessories');
+    if (show) {
+      accessories[0].style.opacity = 1;
+    } else {
+      accessories[0].style.opacity = 0;
+    }
+  };
+  var change = function change(e) {
+    var start = this.innerText.lastIndexOf('|') + 1;
+    var end = this.innerText.lastIndexOf('$');
+    var sum = this.innerText.substring(start, end);
+    var index = Array.from(this.parentElement.parentElement.children).indexOf(this.parentElement);
+    if (e.target.checked) {
+      this.style.background = '#9E7D43';
+      this.style.color = '#FFFFFF';
+      if (index === 0) {
+        toggleAccessories(true);
       }
-    });
+    } else {
+      this.style.color = '#30261D';
+      this.style.background = '#F6F5F3';
+      sum *= -1;
+      if (index === 0) {
+        toggleAccessories(false);
+      }
+    }
+    total.dispatchEvent(new CustomEvent('sumChange', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        sum: sum,
+        source: 'checkbox'
+      }
+    }));
+  };
+  var _iterator = _createForOfIteratorHelper(checkbox),
+    _step;
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var element = _step.value;
+      element.addEventListener('change', change);
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
   }
 })();
 
@@ -354,6 +491,9 @@ var __webpack_exports__ = {};
 /* harmony import */ var _pages_main_questions_questions__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_pages_main_questions_questions__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_common_header_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(395);
 /* harmony import */ var _pages_common_header_header__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_pages_common_header_header__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_main_booking_booking__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
+/* harmony import */ var _pages_main_booking_booking__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_main_booking_booking__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 

@@ -2,7 +2,9 @@
   const actieColor = '#9E7D43';
   const passiveColor = '#FFFFFF';
   const sliders = [];
-  const mql = window.matchMedia('(max-width: 1080px)');
+  const mql = window.matchMedia('(max-width: 870px)');
+  const total =
+    document.getElementsByClassName('total_container')[0].lastElementChild;
 
   const controlsClass = (carusel) => {
     const sliderControls = {
@@ -52,16 +54,25 @@
         element.container.firstElementChild.lastElementChild.innerHTML;
       element.container.firstElementChild.append(div);
     }
+    element.container.lastChild.style.left = `calc(50% - ${
+      element.container.lastChild.offsetWidth / 2
+    }px)`;
   };
 
   const getOffset = (slider) => {
+    let padding = getComputedStyle(
+      slider.container.children.item(0).firstElementChild
+    )['padding-right'];
+    let index = padding.lastIndexOf('px')
+      ? padding.lastIndexOf('px')
+      : padding.lastIndexOf('rem');
+    padding = index ? padding.substr(0, index) : 0;
     let viewWidth = slider.container.offsetWidth;
-    let wrapWidth = viewWidth * slider.carusel * slider.imgCount;
     let imgWidth = viewWidth * slider.carusel;
-    let offset = Math.round(
-      ((imgWidth - (viewWidth - imgWidth) / 2) / wrapWidth) * 100
-    );
-    return offset;
+    let wrapWidth =
+      imgWidth * slider.imgCount + padding * (slider.imgCount - 1);
+    let offset = ((imgWidth - (viewWidth - imgWidth) / 2) / wrapWidth) * 100;
+    return Math.round(offset * 100) / 100;
   };
 
   const moveSlide = (slider) => {
@@ -89,23 +100,51 @@
     }
   };
 
+  const sendEvent = (sum) => {
+    total.dispatchEvent(
+      new CustomEvent('sumChange', {
+        bubbles: true,
+        composed: true,
+        detail: { sum: sum, source: 'slider' },
+      })
+    );
+  };
+
+  const moveSlider = (element, slider, direction) => {
+    element.lastElementChild.children.item(
+      slider.current
+    ).style.backgroundColor = passiveColor;
+    showText(slider, 0);
+    if (direction === 'right') {
+      if (slider.current < slider.count - 1) {
+        slider.current++;
+      } else {
+        slider.current = 0;
+      }
+    } else if (direction === 'left') {
+      if (slider.current > 0) {
+        slider.current--;
+      } else {
+        slider.current = slider.count - 1;
+      }
+    }
+    element.lastElementChild.children.item(
+      slider.current
+    ).style.backgroundColor = actieColor;
+    moveSlide(slider);
+    showText(slider, 1);
+    let sum = slider.container
+      .getElementsByClassName('slider_sum')
+      [slider.current].innerText.substring(1);
+    if (slider.text) {
+      sendEvent(sum);
+    }
+  };
+
   const pressButtonNext = function () {
     for (let slider of sliders) {
       if (this.parentElement === slider.container) {
-        this.parentElement.lastElementChild.children.item(
-          slider.current
-        ).style.backgroundColor = passiveColor;
-        showText(slider, 0);
-        if (slider.current < slider.count - 1) {
-          slider.current++;
-        } else {
-          slider.current = 0;
-        }
-        this.parentElement.lastElementChild.children.item(
-          slider.current
-        ).style.backgroundColor = actieColor;
-        moveSlide(slider);
-        showText(slider, 1);
+        moveSlider(this.parentElement, slider, 'right');
         break;
       }
     }
@@ -114,20 +153,32 @@
   const pressButtonPrev = function () {
     for (let slider of sliders) {
       if (this.parentElement === slider.container) {
-        this.parentElement.lastElementChild.children.item(
-          slider.current
-        ).style.backgroundColor = passiveColor;
-        showText(slider, 0);
-        if (slider.current > 0) {
-          slider.current--;
-        } else {
-          slider.current = slider.count - 1;
+        moveSlider(this.parentElement, slider, 'left');
+        break;
+      }
+    }
+  };
+
+  const touchSliderStart = function (event) {
+    for (let slider of sliders) {
+      if (this === slider.container) {
+        slider.touchStart = event.touches[0].clientX;
+        break;
+      }
+    }
+  };
+
+  const touchSliderEnd = function (event) {
+    for (let slider of sliders) {
+      if (this === slider.container) {
+        let deltaX = slider.touchStart - event.changedTouches[0].clientX;
+        if (Math.abs(deltaX) > 30) {
+          if (deltaX < 0) {
+            moveSlider(this, slider, 'left');
+          } else {
+            moveSlider(this, slider, 'right');
+          }
         }
-        this.parentElement.lastElementChild.children.item(
-          slider.current
-        ).style.backgroundColor = actieColor;
-        moveSlide(slider);
-        showText(slider, 1);
         break;
       }
     }
@@ -142,6 +193,7 @@
       current: 0,
       text: slider.getElementsByClassName('slider_text').length,
       offset: 0,
+      touchStart: 0,
     };
     let persent = 100;
     element.imgCount = element.count;
@@ -172,6 +224,8 @@
       slider.querySelectorAll('.slider_text')[0].style.opacity = 1;
       slider.querySelectorAll('.slider_text')[0].style.visibility = 'visible';
     }
+    slider.addEventListener('touchstart', touchSliderStart);
+    slider.addEventListener('touchend', touchSliderEnd);
     return element;
   };
 
@@ -198,25 +252,24 @@
     for (let marker of elements.item(elements.length - 1).children) {
       marker.classList.remove(removelClass.marker);
       marker.classList.add(addClass.marker);
+      slider.container.lastChild.style.left = `calc(50% - ${
+        slider.container.lastChild.offsetWidth / 2
+      }px)`;
     }
   };
-
-  for (let slider of document.getElementsByClassName('slider')) {
-    sliders.push(initWrapper(slider));
-  }
 
   const changeSlider = (e) => {
     for (let slider of sliders) {
       slider.container.style.visibility = 'hidden';
       if (slider.carusel) {
         if (e.matches) {
+          let width = 100 * slider.imgCount;
           slider.container.firstElementChild.classList.remove('carusel_slider');
-          slider.container.firstElementChild.style.width =
-            100 * slider.imgCount + '%';
+          slider.container.firstElementChild.style.width = `${width}%`;
+          slider.offset = 100 / slider.imgCount;
           slider.container.firstElementChild.style.transform =
-            'translateX(-20%)';
-          slider.offset = 20;
-          toggleControls(slider,controlsClass(true),controlsClass(false));
+            'translateX(-' + slider.offset + '%)';
+          toggleControls(slider, controlsClass(true), controlsClass(false));
         } else {
           slider.container.firstElementChild.classList.add('carusel_slider');
           slider.container.firstElementChild.style.width =
@@ -224,7 +277,7 @@
           slider.offset = getOffset(slider);
           slider.container.firstElementChild.style.transform =
             'translateX(-' + slider.offset + '%)';
-            toggleControls(slider,controlsClass(false),controlsClass(true));
+          toggleControls(slider, controlsClass(false), controlsClass(true));
         }
         moveSlide(slider);
       }
@@ -234,6 +287,11 @@
     }
   };
 
-  changeSlider(mql);
+  for (let slider of document.getElementsByClassName('slider')) {
+    sliders.push(initWrapper(slider));
+  }
+
   mql.addEventListener('change', changeSlider);
+  changeSlider(mql);
+
 })();

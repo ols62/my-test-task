@@ -1,11 +1,9 @@
 .checkbox-css {
   display: inline-block;
-  padding: 0.9rem 1.5rem 0.9rem 2.0rem;
+  padding: 0.8rem 1.5rem 0.8rem 2.0rem;
   cursor: pointer;
   font-family: TT Wellingtons;
-  /*font-size: 1.8rem;
-   line-height: 3.2rem;*/
-  font-size: min(1.07vw,1.8rem);
+  font-size: clamp(1.2rem, 1.07vw, 1.8rem);
   font-weight: 700;
   line-height:178%;
   letter-spacing: 0rem;
@@ -31,7 +29,6 @@
 .checkbox-css :nth-child(1) {
   padding-right: 1.3rem;
 }
-
 .checkbox-css input {
   opacity: 0;
   cursor: pointer;
@@ -77,4 +74,37 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+@media screen and (max-width: 1160px) {
+  .checkbox-css {
+    padding: 0.7rem 0.9rem 0.7rem 1.2rem;
+   }
+
+   .checkbox-css_checkmark {
+    height: 16px;
+    width: 16px;
+    float: right;
+    background-color: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 8px;
+    background-position: right;
+  }
+
+  .checkbox-css .checkbox-css_checkmark:after {
+    width: 0.2rem;
+    height: 0.5rem;
+    border: solid #9E7D43;
+    border-width: 0rem 0.2rem 0.2rem 0rem;
+  }
+
+  .checkbox-css :nth-child(1) {
+    padding-right: 0.3rem;
+  }
+
+  .checkbox-css_checkmark:after {
+    content: "";
+    margin-left: 0.6rem;
+    margin-top: 0.3rem;
+    display: none;
+  }
 }

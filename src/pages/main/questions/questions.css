@@ -2,12 +2,11 @@
   background-color: var(--color-background-light);
   margin-top: 10rem;
   color: #30261D;
-
 }
 
 .questions__title {
   font-family: TT Wellingtons;
-  font-size: 6.0rem;
+  font-size: clamp(3.2rem, 3.57vw, 6.0rem);
   font-weight: 400;
   line-height: 6.0rem;
   letter-spacing: 0rem;
@@ -33,7 +32,7 @@
   font-family: 'TT Wellingtons';
   font-style: normal;
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 0.96vw, 1.8rem);
   line-height: 3.2rem;
   cursor: pointer;
   width: 100%;
@@ -82,17 +81,29 @@
 
 .answer__text {
   font-family: Inter;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 0.96vw, 1.8rem);
   font-weight: 400;
   line-height: 2.9rem;
   letter-spacing: 0rem;
   text-align: left;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 870px) {
   .questions {
+    margin-top: 3.8rem;
     padding-left: 30px;
     padding-right: 30px;
+  }
+
+  .questions__title {
+    line-height: 100%;
+    text-align: left;
+    padding-bottom: 2.0rem;
+    padding-left: 0rem;
+  }
+
+  .accordion {
+    margin-bottom: 4.0rem;
   }
 
   .accordion_item {
@@ -100,6 +111,24 @@
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
+  }
+
+  .question__text {
+    line-height: 2.0rem;
+    padding: 1.5rem 1.5rem 1.4rem 0rem;
+    background: url(../../../images/icons/arrow_down.svg) no-repeat right 1.5rem top 1.5rem;
+  }
+
+  .question_active {
+    padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+    border-radius: 12px;
+    background-color: #F6F5F3;
+  }
+
+  .question__text:hover {
+    border-radius: 0px;
+    background: url(../../../images/icons/arrow_down.svg) no-repeat right 1.5rem top 1.5rem;
+    color: #9E7D43;
   }
 
   .answer {
@@ -110,22 +139,18 @@
     box-shadow: 0px 4px 20px rgba(22, 26, 32, 0.06);
     border-radius: 12px;
     background: transparent;
-    padding: 3.0rem;
-    max-width: none;
+    padding: 1.5rem;
     margin-top: 0.5rem;
+    max-width: none;
     background-color: #F6F5F3;
   }
 
-  .question_active {
-    border-radius: 12px;
-     background: url(../../../images/icons/arrow_down.svg) no-repeat center right 2.3rem;
-     background-color: #F6F5F3;
+  .answer__title {
+    display: none;
   }
-  
-  .question__text:hover {
-    border-radius: 0px;
-    background: url(../../../images/icons/arrow_down.svg) no-repeat center right 2.3rem;
-    color: #9E7D43;
+
+  .answer__text {
+    line-height: 2.2rem;
   }
 
 }

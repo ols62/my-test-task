@@ -26,6 +26,7 @@
 }
 
 .footer_navigation__link {
+  font-family: 'TT Wellingtons';
   color: #FFFFFF;
   text-transform: uppercase;
   font-weight: 700;
@@ -45,7 +46,7 @@
 
 .footer__line {
   border-top: 2px solid #FFFFFF;
-  padding-top:2.0rem ;
+  padding-top: 1.5rem;
   padding-bottom: 2.1rem;
   margin-left: 1.4rem;
   font-family: 'Inter';
@@ -57,30 +58,56 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 870px) {
+  .footer {
+    padding-top: 4.0rem;
+  }
+
   .footer__wrapper {
     padding-bottom: 4.0rem;
     display: grid;
     grid-template-columns: 1fr;
   }
+
   .footer__logo {
     padding-left: 3.0rem;
     padding-bottom: 4.0rem;
   }
 
+  .footer__logo object {
+    width: 19.8rem;
+  }
+
   .footer_navigation {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 8.1rem;
-    padding-bottom: 4.0rem;
+    padding: 0rem 3.0rem;
+
+  }
+
+  .footer_navigation__item {
+    padding: 0rem 3.0rem 2.3rem 0rem;
+  }
+
+  .footer_navigation__link {
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
   }
 
   .footer_social {
-    justify-self: center;
-    padding-right: 2.6rem;
+    justify-self: left;
+    padding-top: 1.8rem;
+    padding-left: 1.0rem;
   }
 
+  @media screen and (max-width: 400px) {
 
+    .footer_navigation {
+      grid-column-gap: 0rem;
+    }
 
+    .footer_social {
+      justify-self: left;
+    }
+  }
 
 }

@@ -15,3 +15,4 @@ import './pages/main/booking/checkbox.css';
 import './pages/main/booking/checkbox';
 import './pages/main/questions/questions';
 import './pages/common/header/header';
+import './pages/main/booking/booking';
