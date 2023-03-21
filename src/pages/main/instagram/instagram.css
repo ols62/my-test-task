@@ -38,16 +38,16 @@
 
 .instagram__gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: calc(clamp(0.5rem, 2.38vw, 4.0rem));
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.5rem, 2.38vw, 4.0rem);
   justify-content: space-between;
   padding-bottom: 100px;
 }
 
 .instagram__picture {
+  overflow: hidden;
   min-width: 155px;
   width: 100%;
-  height: auto;
   border-radius: 20px;
 
 }
@@ -60,15 +60,14 @@
   .instagram__gallery {
     padding-bottom: 40px;
     grid-template-columns: 1fr 1fr;
-    gap: calc(clamp(0.5rem, 2.38vw, 4.0rem));
-    
+
   }
 
   .instagram__gallery>:nth-child(1),
   .instagram__gallery>:nth-child(3) {
     justify-self: end;
     align-content: flex-end;
-   }
+  }
 
   .instagram__header {
     padding: 0rem 0rem 2.0rem 0rem;
@@ -78,6 +77,11 @@
   .instagram__title {
     line-height: 3.2rem;
   }
- 
+
 }
 
+@media screen and (max-width: 400px) {
+  .instagram__gallery {
+    gap: clamp(0.5rem, 1.33%, 4.0rem);
+  }
+}

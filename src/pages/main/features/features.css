@@ -73,9 +73,9 @@
 .info__rows_2 img,
 .info-delivery,
 .info-prices {
-  overflow: hidden;
   font-family: 'TT Wellingtons';
-  background: var(--color-background-light);
+  overflow: hidden;
+   background: var(--color-background-light);
   box-shadow: 0px 20px 50px rgba(25, 34, 41, 0.1);
   border-radius: 20px;
   color: #30261D;
@@ -196,7 +196,6 @@
 
   .info__rows_2 {
     grid-template-columns: 1fr 1fr;
-    gap: clamp(0.5rem, 1.33%, 4.0rem);
   }
 
   .info__rows_2>:nth-child(1),
@@ -224,5 +223,11 @@
 
   .info-prices__title {
     padding-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .info__rows_2 {
+    gap: clamp(0.5rem, 1.33%, 4.0rem);
   }
 }

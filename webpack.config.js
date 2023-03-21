@@ -20,7 +20,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|jpe?g|gif)$/i,
+        test: /\.(png|jpg|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[contenthash][ext]',
@@ -43,14 +43,14 @@ module.exports = {
       /*{
         test: /\.html$/i,
         loader: 'html-loader',
-      },*/
+      },
       {
         test: /\.svg$/,
         type: 'asset/resource',
         generator: {
           filename: 'images/[contenthash][ext]',
         },
-      },
+      },*/
     ],
   },
   plugins: [
@@ -91,7 +91,7 @@ module.exports = {
               ['gifsicle', { interlaced: true }],
               ['jpegtran', { progressive: true }],
               ['optipng', { optimizationLevel: 5 }],
-              ['svgo', { name: 'preset-default' }],
+              /*['svgo', { name: 'preset-default' }],*/
             ],
           },
         },
