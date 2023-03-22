@@ -108,3 +108,10 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .checkbox-css {
+    font-size: 1.0rem;
+    padding: 0.5rem;
+   }
+}

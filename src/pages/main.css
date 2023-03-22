@@ -8,12 +8,6 @@
     --color-primary: #F1CDB3;
     --color-primary-light: #FDDCC4;
     --color-dark-xl: #333333;
-    /*    ----for slider----   */
-    --sl-content-width: 60%;
-    --sl-content-min-width: 360px;
-    --sl-color-background: var(--color-background);
-    --sl-color-control-l: #C9C9C9;
-    --sl-color-control-xl: #9f975cc5;
 }
 
 * {
@@ -40,7 +34,6 @@ li {
 
 .section-wrapper {
     max-width: var(--content-max-width);
-    min-width: 320px;
     width: 100%;
     margin: 0px auto;
     background: var(--color-background-dark);
@@ -52,8 +45,6 @@ li {
     max-width: var(--content-width);
     width: 100%;
     margin: 0px auto;
-    /*---------- debug -----------
-    border: 1px dotted red;*/
 }
 
 .button-primary,

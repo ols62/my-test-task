@@ -91,7 +91,13 @@ module.exports = {
               ['gifsicle', { interlaced: true }],
               ['jpegtran', { progressive: true }],
               ['optipng', { optimizationLevel: 5 }],
-              /*['svgo', { name: 'preset-default' }],*/
+              /*[
+                'svgo',
+                {
+                  name: 'preset-default',
+                  overrides: { cleanupListOfValues: false, },
+                },
+              ],*/
             ],
           },
         },
