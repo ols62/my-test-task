@@ -174,10 +174,6 @@
     text-align: right;
 }
 
-.booking_img {
-    min-width: 320px;
-}
-
 .booking_slider {
     border-radius: 12px;
 }
@@ -398,5 +394,43 @@
         padding: 2.0rem 3rem 1.6rem 3rem;
     }
 
+}
+
+@media screen and (max-width: 320px) {
+
+    .select-css {
+        width: 100%;
+        font-weight: 400;
+        font-size: clamp(1.4rem, 1.07vw, 1.8rem);
+        line-height: 3.0rem;
+         padding: 0rem 1.0rem 0rem 1.0rem;
+     }
+
+     .booking_form__label {
+        font-size:1.2rem;
+        line-height: 1.7rem;
+        text-align: left;
+        margin-top: 2.0rem;
+        margin-bottom: 0.8rem;
+    }
+
+     .select-css_arrow {
+        background-image: url('../../../images/icons/arrow_down.svg');
+        background-position: right 0.5rem center, 0 0;
+        background-repeat: no-repeat;
+    }
+
+    .booking__datetime {
+        font-size: clamp(1.2rem, 1.07vw, 1.8rem);
+        line-height: 3.0rem;
+        padding: 0rem 1.0rem 0rem 1.0rem;
+    }
+
+    .booking__button {
+        margin-top: 0rem;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        padding: 1.0rem 3rem 1.0rem 3rem;
+    }
 
 }

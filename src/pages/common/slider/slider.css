@@ -155,15 +155,15 @@
 		display: block;
 		position: relative;
 		overflow: hidden;
-		width: 375px;
-		height: 375px;
+		/*width: 375px;
+		height: 375px;*/
 		margin: 0px auto;
 		visibility: hidden;
 	}
 
 	.slider_wrapper img {
-		width: 375px;
-		height: 375px;
+		/*width: 375px;
+		height: 375px;*/
 		overflow: hidden;
 		object-fit: cover;
 		object-position: center;
