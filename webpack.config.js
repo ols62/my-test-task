@@ -20,7 +20,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpg|jpe?g|gif|ico|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[contenthash][ext]',
@@ -43,13 +43,6 @@ module.exports = {
       /*{
         test: /\.html$/i,
         loader: 'html-loader',
-      },
-      {
-        test: /\.svg$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'images/[contenthash][ext]',
-        },
       },*/
     ],
   },
@@ -63,14 +56,14 @@ module.exports = {
         onStart: {
           delete: ['dist'],
         },
-        /*onEnd: {
+        onEnd: {
           copy: [
             {
-              source: path.join('src', 'static'),
-              destination: 'dist',
+              source: path.join(__dirname,'src/favicon.ico'),
+              destination: 'dist/favicon.ico',
             },
           ],
-        },*/
+        },
       },
     }),
     new MiniCssExtractPlugin({
@@ -95,7 +88,6 @@ module.exports = {
                 'svgo',
                 {
                   name: 'preset-default',
-                  overrides: { cleanupListOfValues: false, },
                 },
               ],*/
             ],
