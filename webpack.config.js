@@ -20,7 +20,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|jpe?g|gif|ico|svg)$/i,
+        test: /\.(png|jpg|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[contenthash][ext]',
